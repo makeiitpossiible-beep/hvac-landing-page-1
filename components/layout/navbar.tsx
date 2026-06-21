@@ -5,15 +5,13 @@ import { Menu, X, Wind } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { NAV_LINKS, BRAND } from '@/lib/constants'
-import { getNextDayLabel, scrollToId } from '@/lib/format'
+import { scrollToId } from '@/lib/format'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [nextDay, setNextDay] = useState('')
 
   useEffect(() => {
-    setNextDay(getNextDayLabel())
     const onScroll = () => setScrolled(window.scrollY > 12)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -62,19 +60,6 @@ export function Navbar() {
 
         {/* Right cluster */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            onClick={() => handleNav('#pricing')}
-            className="hidden items-center gap-2 rounded-full border border-success/30 bg-success-soft px-3 py-1.5 text-xs font-semibold text-success transition-colors hover:border-success/60 sm:flex"
-          >
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-success" />
-            </span>
-            <span aria-live="polite">
-              Available {nextDay || 'Next-Day'}
-            </span>
-          </button>
-
           <Button
             size="lg"
             onClick={() => handleNav('#pricing')}
@@ -118,10 +103,6 @@ export function Navbar() {
               {link.label}
             </button>
           ))}
-          <div className="mt-2 flex items-center gap-2 rounded-md bg-success-soft px-3 py-2 text-sm font-semibold text-success">
-            <span className="size-2 rounded-full bg-success" />
-            Available {nextDay || 'Next-Day'}
-          </div>
         </nav>
       </div>
     </header>

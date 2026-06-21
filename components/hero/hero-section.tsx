@@ -6,8 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/reveal'
 import { SystemCard } from '@/components/hero/system-card'
 import { SYSTEM_OPTIONS } from '@/lib/constants'
-import { getNextDayLabel, scrollToId } from '@/lib/format'
-import { useEffect, useState } from 'react'
+import { scrollToId } from '@/lib/format'
 
 const TRUST_PILLS = [
   { icon: Tag, label: 'All-inclusive pricing' },
@@ -16,8 +15,6 @@ const TRUST_PILLS = [
 ]
 
 export function HeroSection() {
-  const [nextDay, setNextDay] = useState('')
-  useEffect(() => setNextDay(getNextDayLabel()), [])
 
   return (
     <section
@@ -41,13 +38,6 @@ export function HeroSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
           {/* Copy */}
           <div className="max-w-xl">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success-soft px-3 py-1 text-xs font-semibold text-success">
-                <span className="size-2 animate-soft-pulse rounded-full bg-success" />
-                Installing as soon as {nextDay || 'tomorrow'}
-              </span>
-            </Reveal>
-
             <Reveal delay={80}>
               <h1 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 Upfront pricing. Next-day HVAC installation.
