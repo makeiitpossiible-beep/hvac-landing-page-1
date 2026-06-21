@@ -14,7 +14,7 @@ export function TestimonialsSection() {
             Real results
           </span>
           <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-brand-foreground sm:text-4xl">
-            Homeowners cooled down fast — and saved
+            Homeowners cooled down fast and saved
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-brand-foreground/70">
             Thousands of installs, measured by speed, savings, and satisfaction.
