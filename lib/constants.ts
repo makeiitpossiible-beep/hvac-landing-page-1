@@ -1,12 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import {
-  ShieldCheck,
-  FileCheck2,
-  BadgeCheck,
-  Wrench,
-  Wind,
-  Snowflake,
-} from 'lucide-react'
+import { ShieldCheck, FileCheck2, BadgeCheck, Wrench } from 'lucide-react'
 
 /* ---------------------------------- Brand --------------------------------- */
 
@@ -29,39 +22,6 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'Configure', href: '#configurator' },
   { label: 'Reviews', href: '#reviews' },
   { label: 'FAQ', href: '#faq' },
-]
-
-/* ------------------------------- Hero systems ------------------------------ */
-
-export interface SystemOption {
-  id: string
-  name: string
-  tagline: string
-  icon: LucideIcon
-  image: string
-  startingPrice: number
-  monthlyPrice: number
-}
-
-export const SYSTEM_OPTIONS: SystemOption[] = [
-  {
-    id: 'central-air',
-    name: 'Central Air & Heat Pumps',
-    tagline: 'Whole-home comfort with a single efficient system.',
-    icon: Wind,
-    image: '/images/central-air-system.png',
-    startingPrice: 3500,
-    monthlyPrice: 79,
-  },
-  {
-    id: 'mini-split',
-    name: 'Ductless Mini-Splits',
-    tagline: 'Room-by-room control, no ductwork required.',
-    icon: Snowflake,
-    image: '/images/mini-split-system.png',
-    startingPrice: 2900,
-    monthlyPrice: 65,
-  },
 ]
 
 /* ------------------------------ Feature banner ----------------------------- */
@@ -191,6 +151,7 @@ export interface Testimonial {
   author: string
   location: string
   badge: string
+  image: string
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -198,28 +159,61 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 1,
     rating: 5,
     headline: 'Literally lifesaving in the July heat.',
-    body: 'Our central AC quit on a Tuesday night. Every local company wanted a consultation days out. I found this site, chose our unit, and by Wednesday at 2 PM the techs had the new system running. Incredible turnaround.',
+    body: 'Our central AC quit on a Tuesday night. Every local company wanted a consultation days out. I booked a next-day install here, and by Wednesday at 2 PM the crew had the new system running. Incredible turnaround.',
     author: 'Marcus K.',
     location: 'Phoenix, AZ',
-    badge: 'Verified Buyer',
+    badge: 'Verified Customer',
+    image: '/images/avatars/marcus.png',
   },
   {
     id: 2,
     rating: 5,
     headline: 'Finally, a price I could actually trust.',
-    body: 'No surprise add-ons, no four-hour sales pitch in my living room. The price on the screen was the price I paid. The crew was clean, fast, and walked me through the new thermostat before they left.',
+    body: 'No surprise add-ons, no four-hour sales pitch in my living room. The quoted install price was the price I paid. The crew was clean, fast, and walked me through the new thermostat before they left.',
     author: 'Danielle R.',
     location: 'Austin, TX',
-    badge: 'Verified Buyer',
+    badge: 'Verified Customer',
+    image: '/images/avatars/danielle.png',
   },
   {
     id: 3,
     rating: 5,
     headline: 'The configurator nailed our system size.',
-    body: 'I was nervous about picking the right size, but the online tool matched what the supervisor confirmed on the call. Whole process took ten minutes and saved us over $1,500 compared to two other quotes.',
+    body: 'I was nervous about sizing, but the online tool matched what the install supervisor confirmed on the call. The whole booking took ten minutes and saved us over $1,500 compared to two other quotes.',
     author: 'James & Priya T.',
     location: 'Denver, CO',
-    badge: 'Verified Buyer',
+    badge: 'Verified Customer',
+    image: '/images/avatars/james.png',
+  },
+  {
+    id: 4,
+    rating: 5,
+    headline: 'The crew treated my home with respect.',
+    body: 'They laid down floor protection, cleaned up every scrap, and hauled away my ancient furnace. You can tell these are seasoned, certified installers and not a random subcontractor.',
+    author: 'Sofia M.',
+    location: 'San Diego, CA',
+    badge: 'Verified Customer',
+    image: '/images/avatars/sofia.png',
+  },
+  {
+    id: 5,
+    rating: 5,
+    headline: 'Permits and paperwork handled for me.',
+    body: 'I dreaded dealing with city permits. They pulled everything, scheduled the inspection, and it passed first try. The 10-year labor warranty gave me real peace of mind on the investment.',
+    author: 'David L.',
+    location: 'Columbus, OH',
+    badge: 'Verified Customer',
+    image: '/images/avatars/david.png',
+  },
+  {
+    id: 6,
+    rating: 5,
+    headline: 'Booked online at midnight, installed by noon.',
+    body: 'My newborn and I could not survive another day without AC. I scheduled the service from my phone late at night and a friendly, professional team arrived the next morning. Service like this is rare.',
+    author: 'Aisha N.',
+    location: 'Atlanta, GA',
+    badge: 'Verified Customer',
+    image: '/images/avatars/aisha.png',
   },
 ]
 
@@ -300,6 +294,30 @@ export const CONFIG_SYSTEM_TYPES: ConfigSystemType[] = [
     description: 'Max efficiency in every season.',
   },
 ]
+
+/**
+ * Maps the configurator inputs to one of the three real installation packages.
+ * This gives the configurator a concrete outcome: a recommended, bookable tier.
+ */
+export function recommendTier(
+  sqft: number,
+  climate: ClimateZone,
+  systemType: ConfigSystemType,
+): PricingTier {
+  let tierId: PricingTier['id']
+
+  if (systemType.id === 'hybrid' || climate.multiplier >= 1.15) {
+    // Variable-speed efficiency for premium systems or demanding humid climates.
+    tierId = 'ultimate'
+  } else if (sqft > 2400 || climate.multiplier > 1.05) {
+    // Larger homes or hotter/colder climates benefit from two-stage efficiency.
+    tierId = 'high'
+  } else {
+    tierId = 'standard'
+  }
+
+  return PRICING_TIERS.find((t) => t.id === tierId) ?? PRICING_TIERS[0]
+}
 
 /* ------------------------------- Footer nav -------------------------------- */
 

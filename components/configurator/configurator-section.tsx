@@ -5,10 +5,12 @@ import { Gauge, Zap, Home, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/reveal'
+import { CheckoutModal } from '@/components/modals/checkout-modal'
 import { formatCurrency, scrollToId } from '@/lib/format'
 import {
   CLIMATE_ZONES,
   CONFIG_SYSTEM_TYPES,
+  recommendTier,
   type ClimateZone,
   type ConfigSystemType,
 } from '@/lib/constants'
@@ -19,18 +21,15 @@ export function ConfiguratorSection() {
   const [systemType, setSystemType] = useState<ConfigSystemType>(
     CONFIG_SYSTEM_TYPES[0],
   )
+  const [checkoutOpen, setCheckoutOpen] = useState(false)
 
   const result = useMemo(() => {
     // ~550 sq ft per ton, rounded to the nearest half-ton, clamped 1.5–5.
     const raw = (sqft / 550) * 2
     const tonnage = Math.min(5, Math.max(1.5, Math.round(raw) / 2))
-    const seer =
-      climate.multiplier >= 1.15 ? '18–22 SEER2' : '16–18 SEER2'
-    const price = Math.round(
-      (systemType.base + (tonnage - 2) * 650) * climate.multiplier,
-    )
-    const monthly = Math.round(price / 48)
-    return { tonnage, seer, price, monthly }
+    // Map the inputs to a real, bookable installation package.
+    const tier = recommendTier(sqft, climate, systemType)
+    return { tonnage, tier }
   }, [sqft, climate, systemType])
 
   return (
@@ -142,10 +141,14 @@ export function ConfiguratorSection() {
             <div className="flex h-full flex-col rounded-2xl border border-border bg-brand p-6 text-brand-foreground shadow-lg sm:p-8">
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-orange-light">
                 <Sparkles className="size-3.5" aria-hidden="true" />
-                Recommended for you
+                Recommended package
               </span>
 
-              <div className="mt-6 grid grid-cols-2 gap-4">
+              <p className="mt-4 text-2xl font-bold tracking-tight transition-all">
+                {result.tier.name}
+              </p>
+
+              <div className="mt-5 grid grid-cols-2 gap-4">
                 <Spec
                   icon={<Gauge className="size-5" />}
                   label="System size"
@@ -154,19 +157,19 @@ export function ConfiguratorSection() {
                 <Spec
                   icon={<Zap className="size-5" />}
                   label="Efficiency"
-                  value={result.seer}
+                  value={result.tier.seer}
                 />
               </div>
 
               <div className="mt-6 border-t border-white/10 pt-6">
                 <p className="text-sm text-brand-foreground/70">
-                  Estimated all-inclusive price
+                  All-inclusive price, fully installed
                 </p>
                 <p className="mt-1 text-4xl font-bold tracking-tight transition-all">
-                  {formatCurrency(result.price)}
+                  {formatCurrency(result.tier.price)}
                 </p>
                 <p className="mt-1 text-sm font-medium text-orange-light">
-                  or {formatCurrency(result.monthly)}/mo for 48 months
+                  or {formatCurrency(result.tier.monthlyPayment)}/mo for 48 months
                 </p>
               </div>
 
@@ -177,15 +180,28 @@ export function ConfiguratorSection() {
 
               <Button
                 size="lg"
-                onClick={() => scrollToId('pricing')}
+                onClick={() => setCheckoutOpen(true)}
                 className="mt-6 w-full bg-orange font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-orange-light"
               >
-                See matching packages
+                Book this installation
               </Button>
+
+              <button
+                onClick={() => scrollToId('pricing')}
+                className="mt-3 text-center text-xs font-medium text-brand-foreground/70 underline-offset-4 transition-colors hover:text-brand-foreground hover:underline"
+              >
+                Compare all three packages
+              </button>
             </div>
           </Reveal>
         </div>
       </div>
+
+      <CheckoutModal
+        tier={result.tier}
+        open={checkoutOpen}
+        onClose={() => setCheckoutOpen(false)}
+      />
     </section>
   )
 }

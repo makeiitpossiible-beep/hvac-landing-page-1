@@ -5,14 +5,14 @@ import { STATS } from '@/lib/constants'
 
 export function StatsBar() {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
       {STATS.map((stat, i) => (
-        <Reveal key={stat.id} delay={i * 120}>
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-            <p className="text-4xl font-bold tracking-tight text-orange-light">
+        <Reveal key={stat.id} delay={i * 100}>
+          <div className="flex items-baseline justify-center gap-2 text-center sm:flex-col sm:items-center sm:gap-1">
+            <p className="text-xl font-bold tracking-tight text-orange-light">
               {stat.value}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-brand-foreground/70">
+            <p className="text-xs leading-relaxed text-brand-foreground/60">
               {stat.label}
             </p>
           </div>

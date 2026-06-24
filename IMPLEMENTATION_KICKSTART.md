@@ -1,14 +1,44 @@
 # IMPLEMENTATION_KICKSTART.md
-## HVAC E-Commerce Landing Page - Implementation Blueprint
+## NextDay HVAC — Installation Service Landing Page - Implementation Blueprint
 
 ---
 
 ## 📋 Project Overview
-**Objective**: Build a high-conversion, responsive HVAC e-commerce landing page for modern homeowners (persona: Ivan Petrov) using Next.js 16, React 19, shadcn/ui, and Tailwind CSS v4.
+**Objective**: Build a high-conversion, responsive landing page for an HVAC **installation service** company (NextDay HVAC) targeting modern homeowners, using Next.js 16, React 19, shadcn/ui, and Tailwind CSS v4.
 
-**Key Deliverable**: Single-page application with client-side simulations for configurator, scheduling, and financing flows. No external APIs required.
+**Positioning**: The site sells a **service**, not boxed products. NextDay HVAC is a fully licensed and insured installation company — every package price is "all-inclusive, fully installed" and covers sizing, certified labor, permits, and old-unit removal. Copy throughout should make clear the customer is booking a professional installation, not buying equipment off a shelf.
 
-**Target Experience**: Frictionless journey from awareness to purchase in under 5 minutes, with absolute price transparency and urgency.
+**Key Deliverable**: Single-page application with client-side simulations for the configurator, scheduling, and financing flows. No external APIs required.
+
+**Target Experience**: Frictionless journey from awareness to booked installation in under 5 minutes, with absolute price transparency and next-day urgency.
+
+---
+
+## 🔄 Revision 2 — Service-Focused Redesign
+
+The following changes were applied on top of the original blueprint and supersede the
+corresponding sections below:
+
+1. **Hero is now a company introduction (no product cards).** The hero's right column is a
+   service showcase image with a floating rating card; the left column introduces NextDay HVAC
+   as a licensed, insured installation service. The two `SystemCard`s were removed entirely
+   (component deleted, `SYSTEM_OPTIONS` data removed).
+2. **Service-first positioning.** Hero, pricing, and testimonial copy were rewritten to sell the
+   installation service rather than equipment ("Book your installation", "fully installed",
+   "Verified Customer").
+3. **Configurator now produces a real outcome.** Instead of just scrolling back to the pricing
+   grid, the configurator maps its inputs to one of the three real packages via
+   `recommendTier()` in `lib/constants.ts`, displays that named package, and a **"Book this
+   installation"** button opens the `CheckoutModal` pre-loaded with the recommended tier. A small
+   secondary link still lets users "Compare all three packages".
+4. **Testimonials are a navigable carousel.** A new `TestimonialsCarousel` shows 2–3 cards at a
+   time (responsive) with prev/next arrow controls and progress dots, revealing the remaining
+   reviews on demand. The testimonial pool was expanded from 3 to 6.
+5. **Reviews outrank stats.** The stats trio was de-emphasized: borders and card backgrounds
+   removed, text made smaller/compact, and the block moved **below** the testimonials behind a
+   thin divider so reviews carry more visual weight than the numbers.
+6. **Testimonials have customer photos.** Each testimonial now includes an `image` avatar
+   (`/images/avatars/*.png`) rendered in the card footer.
 
 ---
 
@@ -95,17 +125,17 @@ Tailwind Scale (Default):
 │   │   ├── Footer.tsx       (Deep slate footer, links, trust badges, "Need Custom Fit?" CTA)
 │   │   └── PageContainer.tsx (Responsive wrapper, consistent padding)
 │   ├── hero/
-│   │   ├── HeroSection.tsx  (Hero with headline, subtitle, system cards)
-│   │   └── SystemCard.tsx   (Reusable card: Central Air / Mini-Splits)
+│   │   └── HeroSection.tsx  (Company intro: copy + service showcase image, no product cards)
 │   ├── features/
 │   │   └── FeaturesBanner.tsx (4-column icon grid)
 │   ├── pricing/
 │   │   ├── PricingSection.tsx (Container for 3-tier layout)
 │   │   └── PricingCard.tsx   (Standard/High-Efficiency/Ultimate tiers)
 │   ├── testimonials/
-│   │   ├── TestimonialsSection.tsx (Data stats + testimonial cards)
-│   │   ├── StatsBar.tsx      (3-column counter grid)
-│   │   └── TestimonialCard.tsx (Individual testimonial with 5-stars)
+│   │   ├── TestimonialsSection.tsx (Reviews carousel + de-emphasized stats below)
+│   │   ├── TestimonialsCarousel.tsx (Scroll-snap carousel, arrows + dots, reveals all reviews)
+│   │   ├── StatsBar.tsx      (Borderless, compact 3-stat row — subordinate to reviews)
+│   │   └── TestimonialCard.tsx (Individual testimonial with 5-stars + customer avatar)
 │   ├── faq/
 │   │   └── FAQSection.tsx    (Accordion wrapper, 4 Q&A pairs)
 │   ├── configurator/

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Star, BadgeCheck } from 'lucide-react'
 import type { Testimonial } from '@/lib/constants'
 
@@ -30,16 +31,25 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
         </p>
       </blockquote>
 
-      <figcaption className="mt-5 flex items-center justify-between border-t border-border pt-4">
-        <div>
-          <p className="text-sm font-semibold text-foreground">
+      <figcaption className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+        <Image
+          src={testimonial.image || '/placeholder.svg'}
+          alt={`Portrait of ${testimonial.author}`}
+          width={48}
+          height={48}
+          className="size-12 shrink-0 rounded-full object-cover"
+        />
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-semibold text-foreground">
             {testimonial.author}
           </p>
-          <p className="text-xs text-muted-foreground">{testimonial.location}</p>
+          <p className="truncate text-xs text-muted-foreground">
+            {testimonial.location}
+          </p>
         </div>
-        <span className="inline-flex items-center gap-1 rounded-full bg-success-soft px-2.5 py-1 text-xs font-semibold text-success">
+        <span className="inline-flex shrink-0 items-center gap-1 text-xs font-semibold text-success">
           <BadgeCheck className="size-3.5" aria-hidden="true" />
-          {testimonial.badge}
+          <span className="sr-only sm:not-sr-only">{testimonial.badge}</span>
         </span>
       </figcaption>
     </figure>

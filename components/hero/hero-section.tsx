@@ -1,11 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { ArrowRight, Clock, ShieldCheck, Tag } from 'lucide-react'
+import { ArrowRight, Clock, ShieldCheck, Tag, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Reveal } from '@/components/reveal'
-import { SystemCard } from '@/components/hero/system-card'
-import { SYSTEM_OPTIONS } from '@/lib/constants'
 import { scrollToId } from '@/lib/format'
 
 const TRUST_PILLS = [
@@ -15,7 +13,6 @@ const TRUST_PILLS = [
 ]
 
 export function HeroSection() {
-
   return (
     <section
       id="systems"
@@ -35,20 +32,27 @@ export function HeroSection() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
-          {/* Copy */}
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12">
+          {/* Copy — company introduction */}
           <div className="max-w-xl">
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full border border-brand/15 bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand">
+                Your local HVAC installation experts
+              </span>
+            </Reveal>
+
             <Reveal delay={80}>
               <h1 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                Upfront pricing. Next-day HVAC installation.
+                Heating &amp; cooling, expertly installed as soon as tomorrow.
               </h1>
             </Reveal>
 
             <Reveal delay={160}>
               <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-                Skip the week-long quotes and pushy sales visits. Pick your
-                system, see the all-in price, and have certified pros install it
-                as early as tomorrow.
+                NextDay HVAC is a fully licensed and insured installation
+                service. Our NATE-certified local crews handle everything —
+                sizing, permits, install, and old-unit removal — with upfront
+                pricing and no pushy sales visits.
               </p>
             </Reveal>
 
@@ -59,7 +63,7 @@ export function HeroSection() {
                   onClick={() => scrollToId('pricing')}
                   className="gap-2 bg-orange px-7 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-light hover:shadow-md"
                 >
-                  Shop Systems <ArrowRight className="size-4" />
+                  Book your installation <ArrowRight className="size-4" />
                 </Button>
                 <Button
                   size="lg"
@@ -67,7 +71,7 @@ export function HeroSection() {
                   onClick={() => scrollToId('configurator')}
                   className="border-brand/20 px-7 text-base font-semibold text-foreground hover:bg-background"
                 >
-                  Configure System
+                  See how it works
                 </Button>
               </div>
             </Reveal>
@@ -87,14 +91,44 @@ export function HeroSection() {
             </Reveal>
           </div>
 
-          {/* System cards */}
-          <div className="grid gap-5 sm:grid-cols-2">
-            {SYSTEM_OPTIONS.map((system, i) => (
-              <Reveal key={system.id} delay={200 + i * 120} direction="up">
-                <SystemCard system={system} />
-              </Reveal>
-            ))}
-          </div>
+          {/* Visual — company showcase */}
+          <Reveal delay={200} direction="up">
+            <div className="relative">
+              <div className="overflow-hidden rounded-3xl border border-brand/10 shadow-xl">
+                <Image
+                  src="/images/hero-home.png"
+                  alt="Comfortable modern home served by NextDay HVAC certified installers"
+                  width={720}
+                  height={560}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              {/* Floating rating card */}
+              <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-border bg-card/95 px-4 py-3 shadow-lg backdrop-blur sm:left-8">
+                <div
+                  className="flex items-center gap-0.5"
+                  aria-label="4.9 out of 5 stars"
+                >
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className="size-4 fill-orange text-orange"
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+                <div className="leading-tight">
+                  <p className="text-sm font-bold text-foreground">4.9 rating</p>
+                  <p className="text-xs text-muted-foreground">
+                    2,800+ homes serviced
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

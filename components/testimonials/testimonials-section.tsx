@@ -2,7 +2,7 @@
 
 import { Reveal } from '@/components/reveal'
 import { StatsBar } from '@/components/testimonials/stats-bar'
-import { TestimonialCard } from '@/components/testimonials/testimonial-card'
+import { TestimonialsCarousel } from '@/components/testimonials/testimonials-carousel'
 import { TESTIMONIALS } from '@/lib/constants'
 
 export function TestimonialsSection() {
@@ -21,16 +21,12 @@ export function TestimonialsSection() {
           </p>
         </Reveal>
 
-        <div className="mt-12">
-          <StatsBar />
+        <div className="mt-10">
+          <TestimonialsCarousel testimonials={TESTIMONIALS} />
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {TESTIMONIALS.map((testimonial, i) => (
-            <Reveal key={testimonial.id} delay={i * 120} className="h-full">
-              <TestimonialCard testimonial={testimonial} />
-            </Reveal>
-          ))}
+        <div className="mt-12 border-t border-white/10 pt-8">
+          <StatsBar />
         </div>
       </div>
     </section>
