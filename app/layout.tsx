@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'NextDay HVAC — Upfront Pricing. Next-Day Installation.',
+  title: 'NextDay HVAC | Upfront Pricing. Next-Day Installation.',
   description:
     'Shop high-efficiency air conditioners, heat pumps, and mini-splits with all-inclusive pricing and certified next-day installation. No surprise quotes, no pushy sales visits.',
   generator: 'v0.app',
@@ -22,8 +22,12 @@ export const metadata: Metadata = {
     'mini-split',
     'central air',
   ],
+  icons: {
+    icon: '/icon.jpg',
+    apple: '/icon.jpg',
+  },
   openGraph: {
-    title: 'NextDay HVAC — Upfront Pricing. Next-Day Installation.',
+    title: 'NextDay HVAC | Upfront Pricing. Next-Day Installation.',
     description:
       'All-inclusive HVAC pricing with certified next-day installation. Configure your system online in minutes.',
     type: 'website',

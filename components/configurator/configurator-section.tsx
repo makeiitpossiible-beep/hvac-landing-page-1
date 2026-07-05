@@ -42,7 +42,7 @@ export function ConfiguratorSection() {
           <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Get a tailored recommendation in seconds
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground text-center">
             Tell us about your home and we&apos;ll size the right system and show
             your all-inclusive price instantly.
           </p>
@@ -63,7 +63,7 @@ export function ConfiguratorSection() {
                     Home size
                   </label>
                   <span className="text-sm font-bold text-foreground">
-                    {sqft.toLocaleString()} sq ft
+                    {sqft.toLocaleString('en-US')} sq ft
                   </span>
                 </div>
                 <input
@@ -175,7 +175,7 @@ export function ConfiguratorSection() {
 
               <p className="mt-4 text-xs leading-relaxed text-brand-foreground/60">
                 A certified supervisor confirms sizing on a quick 10-minute call
-                before install — adjustments are always free.
+                before install. Adjustments are always free.
               </p>
 
               <Button

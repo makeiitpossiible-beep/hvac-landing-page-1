@@ -21,7 +21,7 @@ export function HeroSection() {
       {/* Soft background image */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <Image
-          src="/images/hero-home.png"
+          src="/images/hero-hvac-technician.png"
           alt=""
           fill
           priority
@@ -33,16 +33,10 @@ export function HeroSection() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12">
-          {/* Copy — company introduction */}
+          {/* Copy - company introduction */}
           <div className="max-w-xl">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand/15 bg-background px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand">
-                Your local HVAC installation experts
-              </span>
-            </Reveal>
-
             <Reveal delay={80}>
-              <h1 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl text-center">
                 Heating &amp; cooling, expertly installed as soon as tomorrow.
               </h1>
             </Reveal>
@@ -50,9 +44,9 @@ export function HeroSection() {
             <Reveal delay={160}>
               <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
                 NextDay HVAC is a fully licensed and insured installation
-                service. Our NATE-certified local crews handle everything —
-                sizing, permits, install, and old-unit removal — with upfront
-                pricing and no pushy sales visits.
+                service. Our NATE-certified local crews handle everything from
+                sizing and permits to installation and old-unit removal, all
+                with upfront pricing and no pushy sales visits.
               </p>
             </Reveal>
 
@@ -91,13 +85,13 @@ export function HeroSection() {
             </Reveal>
           </div>
 
-          {/* Visual — company showcase */}
+          {/* Visual - company showcase */}
           <Reveal delay={200} direction="up">
             <div className="relative">
               <div className="overflow-hidden rounded-3xl border border-brand/10 shadow-xl">
                 <Image
-                  src="/images/hero-home.png"
-                  alt="Comfortable modern home served by NextDay HVAC certified installers"
+                  src="/images/hero-hvac-technician.png"
+                  alt="HVAC technician installing a unit"
                   width={720}
                   height={560}
                   priority

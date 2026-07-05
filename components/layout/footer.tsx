@@ -1,6 +1,7 @@
 'use client'
 
-import { Wind, ShieldCheck, Phone, ArrowRight } from 'lucide-react'
+import { ShieldCheck, Phone, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { BRAND, FOOTER_LINKS } from '@/lib/constants'
 import { scrollToId } from '@/lib/format'
@@ -13,14 +14,20 @@ export function Footer() {
           {/* Brand bio */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-2">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-orange text-primary-foreground">
-                <Wind className="size-5" aria-hidden="true" />
+              <span className="flex size-9 overflow-hidden rounded-lg border border-white/10 bg-white shadow-sm transition-all duration-300 hover:scale-105">
+                <Image
+                  src="/icon.jpg"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="h-full w-full object-cover"
+                />
               </span>
               <span className="text-lg font-bold">{BRAND.name}</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-brand-foreground/70">
               Transparent, all-inclusive HVAC pricing with certified next-day
-              installation. No surprise quotes, no pushy sales visits — just
+              installation. No surprise quotes, no pushy sales visits. Just
               honest comfort.
             </p>
             <div className="mt-5 flex items-center gap-2 text-sm text-brand-foreground/70">

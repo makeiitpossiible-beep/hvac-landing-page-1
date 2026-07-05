@@ -24,7 +24,7 @@ const HIDDEN: Record<NonNullable<RevealProps['direction']>, string> = {
 
 /**
  * Lightweight scroll-reveal wrapper built on IntersectionObserver.
- * Reusable across every section — no animation library required.
+ * Reusable across every section without requiring an animation library.
  */
 export function Reveal({
   children,

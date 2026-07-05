@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Menu, X, Wind } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { NAV_LINKS, BRAND } from '@/lib/constants'
@@ -39,8 +40,14 @@ export function Navbar() {
           className="flex items-center gap-2 text-brand"
           aria-label={`${BRAND.name} home`}
         >
-          <span className="flex size-9 items-center justify-center rounded-lg bg-brand text-brand-foreground">
-            <Wind className="size-5" aria-hidden="true" />
+          <span className="flex size-9 overflow-hidden rounded-lg border border-border/40 bg-white shadow-sm transition-all duration-300 hover:scale-105">
+            <Image
+              src="/icon.jpg"
+              alt=""
+              width={36}
+              height={36}
+              className="h-full w-full object-cover"
+            />
           </span>
           <span className="text-lg font-bold tracking-tight">{BRAND.name}</span>
         </button>

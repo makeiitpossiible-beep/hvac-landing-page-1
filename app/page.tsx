@@ -1,7 +1,9 @@
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
 import { HeroSection } from '@/components/hero/hero-section'
+import { BrandsBanner } from '@/components/features/brands-banner'
 import { FeaturesBanner } from '@/components/features/features-banner'
+import { ServicesSection } from '@/components/services/services-section'
 import { PricingSection } from '@/components/pricing/pricing-section'
 import { ConfiguratorSection } from '@/components/configurator/configurator-section'
 import { TestimonialsSection } from '@/components/testimonials/testimonials-section'
@@ -13,7 +15,9 @@ export default function Page() {
       <Navbar />
       <main className="flex-1">
         <HeroSection />
+        <BrandsBanner />
         <FeaturesBanner />
+        <ServicesSection />
         <PricingSection />
         <ConfiguratorSection />
         <TestimonialsSection />

@@ -16,7 +16,7 @@ export function TestimonialsSection() {
           <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-brand-foreground sm:text-4xl">
             Homeowners cooled down fast and saved
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-brand-foreground/70">
+          <p className="mt-4 text-pretty text-lg leading-relaxed text-brand-foreground/70 text-center">
             Thousands of installs, measured by speed, savings, and satisfaction.
           </p>
         </Reveal>

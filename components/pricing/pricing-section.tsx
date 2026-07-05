@@ -25,7 +25,7 @@ export function PricingSection() {
           <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             One price. Fully installed. No surprises.
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground text-center">
             Every tier includes equipment, certified labor, permits, and old-unit
             removal. Choose the efficiency that fits your home and budget.
           </p>
