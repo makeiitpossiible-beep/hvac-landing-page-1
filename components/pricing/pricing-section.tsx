@@ -39,8 +39,8 @@ export function PricingSection() {
           ))}
         </div>
 
-        <Reveal className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+        <Reveal className="mt-8 flex justify-center text-center">
+          <p className="text-sm text-muted-foreground text-center">
             Not sure which to pick?{' '}
             <button
               onClick={() =>

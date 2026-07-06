@@ -151,11 +151,11 @@ export function ServicesSection() {
   return (
     <section className="bg-secondary py-16 border-b border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <Reveal>
-          <h2 className="text-3xl font-bold tracking-tight text-brand md:text-4xl">
+        <Reveal className="flex flex-col items-center text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-brand md:text-4xl text-center">
             Our HVAC Service
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground text-center">
             Choose best technicians and latest HVAC technology
           </p>
         </Reveal>
