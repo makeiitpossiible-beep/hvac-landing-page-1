@@ -86,7 +86,7 @@ export function TestimonialsCarousel({
           onClick={() => scrollByCards(-1)}
           disabled={!canPrev}
           aria-label="Previous reviews"
-          className="flex size-10 items-center justify-center rounded-full border border-white/20 text-brand-foreground transition-all hover:border-orange-light hover:text-orange-light disabled:cursor-not-allowed disabled:opacity-30"
+          className="flex size-10 items-center justify-center rounded-full border border-brand/20 text-brand transition-all hover:border-orange hover:text-orange disabled:cursor-not-allowed disabled:opacity-30"
         >
           <ChevronLeft className="size-5" aria-hidden="true" />
         </button>
@@ -102,8 +102,8 @@ export function TestimonialsCarousel({
               className={cn(
                 'h-2 rounded-full transition-all',
                 i === activeIndex
-                  ? 'w-6 bg-orange-light'
-                  : 'w-2 bg-white/25 hover:bg-white/40',
+                  ? 'w-6 bg-orange'
+                  : 'w-2 bg-brand/25 hover:bg-brand/40',
               )}
             />
           ))}
@@ -114,7 +114,7 @@ export function TestimonialsCarousel({
           onClick={() => scrollByCards(1)}
           disabled={!canNext}
           aria-label="Next reviews"
-          className="flex size-10 items-center justify-center rounded-full border border-white/20 text-brand-foreground transition-all hover:border-orange-light hover:text-orange-light disabled:cursor-not-allowed disabled:opacity-30"
+          className="flex size-10 items-center justify-center rounded-full border border-brand/20 text-brand transition-all hover:border-orange hover:text-orange disabled:cursor-not-allowed disabled:opacity-30"
         >
           <ChevronRight className="size-5" aria-hidden="true" />
         </button>

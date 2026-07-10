@@ -178,22 +178,21 @@ Move the statistics section above the review/testimonial cards:
 
 ## Progress Tracking Checklist — Revision 5
 
-- [ ] Remove HVAC Jargons
-  - [ ] Replace "NATE-certified" across all files
-  - [ ] Replace "SEER2" and other technical terms
-  - [ ] Review and update all HVAC-specific terminology
-  - [ ] Files updated: hero, services, pricing, configurator, testimonials, features, footer
-- [ ] Update Service Cards with Generated Images
-  - [ ] Generate professional images for 6 services (Heat Pump, Duct Pump, HVAC, Electric, Refrigeration, Air Conditioning)
-  - [ ] Update `components/services/services-section.tsx` to use generated images instead of icons
-  - [ ] Verify image placement and card layout
-- [ ] Update Colour Palette
-  - [ ] Change dark blue to light blue in non-footer sections
-  - [ ] Update global CSS color definitions
-  - [ ] Update affected section components
-  - [ ] Verify footer colors remain unchanged
-- [ ] Reorder Page Sections
-  - [ ] Move statistics section above review/testimonial cards
-  - [ ] Update component ordering in `app/page.tsx`
-  - [ ] Verify layout and spacing
+- [x] Remove HVAC Jargons
+  - [x] Replace "NATE-certified" across all files (hero copy + features description)
+  - [x] Replace "SEER2" efficiency ratings with plain terms (Standard / High / Top efficiency)
+  - [x] Replace "single-stage/two-stage/variable-speed compressor" and "(tonnage)" with plain language
+  - [x] Files updated: hero, services, pricing (via constants), configurator (via constants), testimonials, features (via constants), FAQ
+- [x] Update Service Cards with Generated Images
+  - [x] Generate professional images for 6 services (Heat Pump, Duct Pump, HVAC, Electric, Refrigeration, Air Conditioning)
+  - [x] Update `components/services/services-section.tsx` to use generated images instead of icons
+  - [x] Verify image placement and card layout
+- [x] Update Colour Palette
+  - [x] Change dark blue to light blue in non-footer sections (FeaturesBanner + TestimonialsSection)
+  - [x] Add `--brand-tint` light blue token to `app/globals.css`
+  - [x] Update affected section components (features banner, testimonials, stats bar, carousel controls) with dark text for contrast
+  - [x] Verify footer colors remain unchanged (still `bg-brand-dark`)
+- [x] Reorder Page Sections
+  - [x] Move statistics section above review/testimonial cards within `components/testimonials/testimonials-section.tsx`
+  - [x] Verify layout and spacing
 
