@@ -134,3 +134,66 @@ This checklist tracks the implementation of these updates.
   - [x] Run Next.js development server and inspect page visually
   - [x] Build production bundle to verify compilation is successful
 
+---
+
+## Revision 5 — HVAC Jargon Removal & Design Updates
+
+To make the website more accessible to general audiences and improve visual design:
+
+### 1. Remove HVAC-Specific Jargons
+Replace technical terms with common language:
+- **"NATE-certified"** → Replace with "certified" or "professionally trained"
+- **"SEER2"** → Replace with descriptive terms like "high-efficiency" or "energy-efficient"
+- **Other jargons** → Scan all copy for HVAC-specific terminology and replace with explanations that general audiences understand
+
+**Files to Update**:
+- `components/hero/hero-section.tsx` (Hero section copy)
+- `components/services/services-section.tsx` (Service descriptions)
+- `components/pricing/pricing-section.tsx` (Pricing tier descriptions)
+- `components/configurator/configurator-section.tsx` (Configurator copy)
+- `components/testimonials/testimonials-section.tsx` (Testimonials if any jargon exists)
+- `components/features/brands-banner.tsx` (Brand descriptions if any)
+- `components/layout/footer.tsx` (Footer copy)
+
+### 2. Service Cards: Icons to Generated Images
+Replace icon representations with generated images in `components/services/services-section.tsx`:
+- For each of the 6 service cards (Heat Pump, Duct Pump, HVAC, Electric, Refrigeration, Air Conditioning), generate professional, illustrative images
+- Place these images in the card header area where icons currently appear
+- Maintain card layout and styling while upgrading visual quality
+
+### 3. Colour Palette Update
+Change dark blue to light blue in specific sections:
+- **Sections to Update**: Any section currently using dark blue (except footer which remains unchanged)
+- **Sections Excluded**: Keep footer colors as-is
+- **Objective**: Light blue will complement white-colored sections better
+- **Files to Review**: Global CSS and individual section components for color definitions
+
+### 4. Reorder Sections
+Move the statistics section above the review/testimonial cards:
+- **Current Order**: [Other sections] → Review Cards → Statistics
+- **New Order**: [Other sections] → Statistics → Review Cards
+- **File**: `app/page.tsx` (component ordering)
+
+---
+
+## Progress Tracking Checklist — Revision 5
+
+- [ ] Remove HVAC Jargons
+  - [ ] Replace "NATE-certified" across all files
+  - [ ] Replace "SEER2" and other technical terms
+  - [ ] Review and update all HVAC-specific terminology
+  - [ ] Files updated: hero, services, pricing, configurator, testimonials, features, footer
+- [ ] Update Service Cards with Generated Images
+  - [ ] Generate professional images for 6 services (Heat Pump, Duct Pump, HVAC, Electric, Refrigeration, Air Conditioning)
+  - [ ] Update `components/services/services-section.tsx` to use generated images instead of icons
+  - [ ] Verify image placement and card layout
+- [ ] Update Colour Palette
+  - [ ] Change dark blue to light blue in non-footer sections
+  - [ ] Update global CSS color definitions
+  - [ ] Update affected section components
+  - [ ] Verify footer colors remain unchanged
+- [ ] Reorder Page Sections
+  - [ ] Move statistics section above review/testimonial cards
+  - [ ] Update component ordering in `app/page.tsx`
+  - [ ] Verify layout and spacing
+
