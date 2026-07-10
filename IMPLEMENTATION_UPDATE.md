@@ -248,19 +248,19 @@ Each of the 8 service cards needs a high-quality, realistic photograph. These ca
 
 ## Progress Tracking Checklist — Revision 6
 
-- [ ] Update Pricing Efficiency Labels
-  - [ ] Replace "Standard efficiency" with "Saves ~15%" in `lib/constants.ts`
-  - [ ] Replace "High efficiency" with "Saves ~30%" in `lib/constants.ts`
-  - [ ] Replace "Top efficiency" with "Saves ~45%" in `lib/constants.ts`
-  - [ ] Verify pricing card displays correct labels
-- [ ] Redesign Service Cards Carousel
-  - [ ] Prepare or generate 8 HVAC service card images (realistic photography)
-  - [ ] Update service data structure in `lib/constants.ts` to support 8 items with images and icon metadata
-  - [ ] Redesign `components/services/services-section.tsx` for carousel layout
-  - [ ] Create carousel component (or add carousel logic) for horizontal scrolling
-  - [ ] Implement smooth left-right scroll animation and drag-to-scroll
-  - [ ] Add carousel navigation buttons (previous/next)
-  - [ ] Ensure responsive behavior (touch/drag on mobile, mouse/keyboard on desktop)
-  - [ ] Test card snapping and scroll performance
-  - [ ] Verify layout on mobile, tablet, and desktop viewports
+- [x] Update Pricing Efficiency Labels
+  - [x] Replace "Standard efficiency" with "Saves ~15%" in `lib/constants.ts`
+  - [x] Replace "High efficiency" with "Saves ~30%" in `lib/constants.ts`
+  - [x] Replace "Top efficiency" with "Saves ~45%" in `lib/constants.ts`
+  - [x] Verified pricing cards display correct labels in the browser
+- [x] Redesign Service Cards Carousel
+  - [x] Generated 8 realistic HVAC service card images (AC, Heating, Heat Pumps, Ductless Mini-Splits, Ductwork, Commercial HVAC, Indoor Air Quality, Maintenance & Repairs)
+  - [x] Defined 8-item service data with images + lucide icon badges inside `components/services/services-section.tsx`
+  - [x] Redesigned `components/services/services-section.tsx` into a single-line marquee carousel
+  - [x] Added `--animate-marquee` keyframe to `app/globals.css` for slow continuous left-right motion
+  - [x] Cards duplicated for a seamless loop; animation pauses on hover
+  - [x] White circular icon badge over each image, with title + description below
+  - [x] Edge fade masks on both sides; respects `prefers-reduced-motion`
+  - [x] Removed old unused illustrated service images
+  - [x] Verified layout in the browser
 

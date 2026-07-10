@@ -78,7 +78,7 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'standard',
     name: 'Standard Efficiency',
-    seer: 'Standard efficiency',
+    seer: 'Saves ~15%',
     description: 'Dependable cooling at the lowest upfront cost.',
     price: 3500,
     monthlyPayment: 79,
@@ -94,7 +94,7 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'high',
     name: 'High-Efficiency Comfort',
-    seer: 'High efficiency',
+    seer: 'Saves ~30%',
     description: 'Balanced energy savings with quiet operation.',
     price: 4800,
     monthlyPayment: 119,
@@ -111,7 +111,7 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'ultimate',
     name: 'Ultimate Smart System',
-    seer: 'Top efficiency',
+    seer: 'Saves ~45%',
     description: 'Smart, ultra-efficient comfort with app control.',
     price: 6200,
     monthlyPayment: 159,
