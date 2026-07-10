@@ -7,7 +7,7 @@ import { TESTIMONIALS } from '@/lib/constants'
 
 export function TestimonialsSection() {
   return (
-    <section id="reviews" className="bg-brand-tint py-16 lg:py-24">
+    <section id="reviews" className="bg-brand-tint py-14 sm:py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wide text-orange">

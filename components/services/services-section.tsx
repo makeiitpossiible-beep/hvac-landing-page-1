@@ -109,7 +109,7 @@ function ServiceCard({ service }: { service: Service }) {
 
 export function ServicesSection() {
   return (
-    <section className="border-b border-border bg-secondary py-16">
+    <section className="border-b border-border bg-secondary py-14 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold tracking-tight text-brand md:text-4xl text-center">

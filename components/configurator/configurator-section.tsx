@@ -33,7 +33,10 @@ export function ConfiguratorSection() {
   }, [sqft, climate, systemType])
 
   return (
-    <section id="configurator" className="bg-background py-16 lg:py-24">
+    <section
+      id="configurator"
+      className="bg-azure-tint py-14 sm:py-16 lg:py-24"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wide text-orange">
@@ -138,7 +141,7 @@ export function ConfiguratorSection() {
 
           {/* Output */}
           <Reveal className="lg:col-span-2" direction="right" delay={120}>
-            <div className="flex h-full flex-col rounded-2xl border border-border bg-brand p-6 text-brand-foreground shadow-lg sm:p-8">
+            <div className="flex h-full flex-col rounded-2xl border border-azure-dark/40 bg-azure p-6 text-azure-foreground shadow-lg sm:p-8">
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-orange-light">
                 <Sparkles className="size-3.5" aria-hidden="true" />
                 Recommended package
@@ -181,7 +184,7 @@ export function ConfiguratorSection() {
               <Button
                 size="lg"
                 onClick={() => setCheckoutOpen(true)}
-                className="mt-6 w-full bg-orange font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-orange-light"
+                className="mt-6 h-11 w-full bg-orange font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-orange-light"
               >
                 Book this installation
               </Button>
