@@ -196,3 +196,71 @@ Move the statistics section above the review/testimonial cards:
   - [x] Move statistics section above review/testimonial cards within `components/testimonials/testimonials-section.tsx`
   - [x] Verify layout and spacing
 
+---
+
+## Revision 6 — Efficiency Savings Percentages & Service Cards Carousel
+
+Further refinements to pricing labels and service cards section to improve engagement and clarity:
+
+### 1. Update Pricing Efficiency Labels to Savings Percentages
+Replace generic efficiency level text with specific energy savings percentages for clearer user understanding:
+- **"Standard efficiency"** → **"Saves ~15%"**
+- **"High efficiency"** → **"Saves ~30%"**
+- **"Top efficiency"** → **"Saves ~45%"**
+
+**Files to Update**:
+- `lib/constants.ts` (pricing tier `seer` field definitions)
+- Verify display in `components/pricing/pricing-card.tsx`
+
+### 2. Replace Service Cards Section with Horizontal Carousel
+Redesign the "Our HVAC Service" section from a 6-card grid layout to an 8-card horizontal scrolling carousel with realistic photography:
+
+**New Service Cards (from reference screenshot)**:
+1. Air Conditioning - outdoor AC unit with snowflake icon
+2. Heating Systems - furnace/boiler with flame icon
+3. Heat Pumps - outdoor heat pump with circular arrow icon
+4. Ductless Mini-Splits - wall-mounted AC with water droplet icon
+5. Ductwork - metal ductwork with pipe icon
+6. Commercial HVAC - rooftop units with building icon
+7. Indoor Air Quality - air purifier with leaf icon
+8. Maintenance & Repairs - technician working with wrench icon
+
+**Requirements**:
+- Display all 8 cards in a single horizontal line (no wrapping)
+- Implement smooth left-right scrolling carousel with drag-to-scroll support
+- Include white circular icon badge on each card (positioned over image in bottom-left or center)
+- Each card shows: large realistic image, white icon badge, title, and description text below
+- Add carousel controls (previous/next buttons) similar to testimonials carousel pattern
+- Responsive behavior: on mobile, maintain horizontal scroll with touch/drag interaction; on desktop, enable mouse drag and buttons
+- Smooth scroll animation and card snapping
+
+**Files to Update**:
+- `lib/constants.ts` (update/expand service data structure to include 8 items with names, descriptions, images, and icon data)
+- `components/services/services-section.tsx` (redesign layout and styling for carousel)
+- Consider creating `components/services/services-carousel.tsx` (if carousel logic warrants separate component)
+
+### 3. Service Images
+Each of the 8 service cards needs a high-quality, realistic photograph. These can either be:
+- Generated using the GenerateImage tool with prompts for realistic HVAC/home imagery
+- Sourced from the reference screenshot provided (preferred if images can be extracted/referenced)
+
+---
+
+## Progress Tracking Checklist — Revision 6
+
+- [ ] Update Pricing Efficiency Labels
+  - [ ] Replace "Standard efficiency" with "Saves ~15%" in `lib/constants.ts`
+  - [ ] Replace "High efficiency" with "Saves ~30%" in `lib/constants.ts`
+  - [ ] Replace "Top efficiency" with "Saves ~45%" in `lib/constants.ts`
+  - [ ] Verify pricing card displays correct labels
+- [ ] Redesign Service Cards Carousel
+  - [ ] Prepare or generate 8 HVAC service card images (realistic photography)
+  - [ ] Update service data structure in `lib/constants.ts` to support 8 items with images and icon metadata
+  - [ ] Redesign `components/services/services-section.tsx` for carousel layout
+  - [ ] Create carousel component (or add carousel logic) for horizontal scrolling
+  - [ ] Implement smooth left-right scroll animation and drag-to-scroll
+  - [ ] Add carousel navigation buttons (previous/next)
+  - [ ] Ensure responsive behavior (touch/drag on mobile, mouse/keyboard on desktop)
+  - [ ] Test card snapping and scroll performance
+  - [ ] Verify layout on mobile, tablet, and desktop viewports
+
