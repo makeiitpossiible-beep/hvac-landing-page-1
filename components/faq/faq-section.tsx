@@ -10,7 +10,7 @@ export function FaqSection() {
   const [openId, setOpenId] = useState<string | null>(FAQ_ITEMS[0]?.id ?? null)
 
   return (
-    <section id="faq" className="bg-secondary py-14 sm:py-16 lg:py-24">
+    <section id="faq" className="bg-secondary py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center">
           <span className="text-sm font-semibold uppercase tracking-wide text-orange">

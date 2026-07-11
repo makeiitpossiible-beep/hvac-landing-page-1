@@ -33,11 +33,6 @@
   --color-brand-dark: var(--brand-dark);
   --color-brand-tint: var(--brand-tint);
   --color-brand-foreground: var(--brand-foreground);
-  --color-azure: var(--azure);
-  --color-azure-light: var(--azure-light);
-  --color-azure-dark: var(--azure-dark);
-  --color-azure-tint: var(--azure-tint);
-  --color-azure-foreground: var(--azure-foreground);
   --color-orange: var(--orange);
   --color-orange-light: var(--orange-light);
   --color-orange-dark: var(--orange-dark);
@@ -110,16 +105,8 @@
   --brand: #1e3a5f;
   --brand-light: #2d4a7b;
   --brand-dark: #0f1e35;
-  --brand-tint: #eaf2fb;
+  --brand-tint: #e6f0fb;
   --brand-foreground: #ffffff;
-
-  /* Azure palette — lighter, friendlier blue for buttons & blocks */
-  --azure: #2f74c0;
-  --azure-light: #4c8ed6;
-  --azure-dark: #235a99;
-  --azure-tint: #f0f6fc;
-  --azure-foreground: #ffffff;
-
   --orange: #ff6b35;
   --orange-light: #ff8555;
   --orange-dark: #e55a2a;

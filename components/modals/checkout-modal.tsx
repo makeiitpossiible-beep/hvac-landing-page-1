@@ -289,7 +289,7 @@ export function CheckoutModal({ tier, open, onClose }: CheckoutModalProps) {
             <Button
               size="lg"
               onClick={onClose}
-              className="w-full bg-azure font-semibold text-azure-foreground hover:bg-azure-light"
+              className="w-full bg-brand font-semibold text-brand-foreground hover:bg-brand-light"
             >
               Done
             </Button>

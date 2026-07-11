@@ -16,7 +16,7 @@ export function PricingSection() {
   }
 
   return (
-    <section id="pricing" className="bg-background py-14 sm:py-16 lg:py-24">
+    <section id="pricing" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-wide text-orange">

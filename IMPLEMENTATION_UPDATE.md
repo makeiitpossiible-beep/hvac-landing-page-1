@@ -362,22 +362,31 @@ To enhance visual harmony and ensure the website is fully responsive across all 
 
 ## Progress Tracking Checklist — Revision 7
 
-- [x] Create Smooth Color Palette
-  - [x] Defined lighter `azure` blue palette tokens in `app/globals.css` (`--azure`, `--azure-light`, `--azure-dark`, `--azure-tint`, `--azure-foreground`)
-  - [x] Softened `--brand-tint` for smoother section transitions
-  - [x] Replaced dark blue pricing card button with `bg-azure`
-  - [x] Replaced dark blue configurator recommendation block with `bg-azure`
-  - [x] Replaced dark blue checkout modal "Done" button with `bg-azure`
-  - [x] Gave configurator section a soft `azure-tint` background for smooth flow
-  - [x] Verified footer colors remain unchanged (still `bg-brand-dark`)
-  - [x] Azure `#2f74c0` on white text passes WCAG AA (~4.8:1)
-- [x] Implement Mobile-First Responsive Design
-  - [x] Hero heading centered on mobile, left-aligned on desktop
-  - [x] Hero CTAs full-width with 48px height on mobile
-  - [x] Hero copy + trust pills centered on mobile
-  - [x] Standardized responsive vertical padding (`py-14 sm:py-16 lg:py-24`) across sections
-  - [x] Pricing/configurator primary CTAs bumped to 44px min height
-  - [x] Verified pricing cards stack cleanly on mobile
-  - [x] Verified no horizontal scrolling on mobile (390px)
-  - [x] Verified layouts in browser at desktop (1440px) and mobile (390px)
+- [ ] Create Smooth Color Palette
+  - [ ] Define new complementary light blue token in `app/globals.css`
+  - [ ] Define warm accent color token in `app/globals.css`
+  - [ ] Update button component colors across site
+  - [ ] Update pricing card button colors
+  - [ ] Update configurator form button colors
+  - [ ] Update feature section background colors
+  - [ ] Update testimonials section styling
+  - [ ] Update FAQ accordion colors
+  - [ ] Verify footer colors remain unchanged
+  - [ ] Test contrast ratios for WCAG AA compliance
+- [ ] Implement Mobile-First Responsive Design
+  - [ ] Update navbar for mobile responsiveness
+  - [ ] Make hero section mobile-friendly
+  - [ ] Optimize pricing cards for all screen sizes
+  - [ ] Make features banner responsive (1-4 columns)
+  - [ ] Ensure service carousel works on mobile
+  - [ ] Test testimonials carousel on mobile
+  - [ ] Make configurator form mobile-friendly
+  - [ ] Optimize FAQ section for mobile
+  - [ ] Make footer responsive (stack on mobile)
+  - [ ] Test checkout modal on mobile devices
+  - [ ] Verify all images scale responsively
+  - [ ] Ensure no horizontal scrolling
+  - [ ] Test touch interactions on mobile
+  - [ ] Verify minimum 44px touch targets
+  - [ ] Test on real mobile devices (iOS & Android)
 

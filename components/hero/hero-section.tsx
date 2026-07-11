@@ -34,9 +34,9 @@ export function HeroSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-12">
           {/* Copy - company introduction */}
-          <div className="mx-auto max-w-xl lg:mx-0">
+          <div className="max-w-xl">
             <Reveal delay={80}>
-              <h1 className="text-balance text-center text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-left lg:text-6xl">
+              <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl text-center">
                 Heating &amp; cooling, expertly installed as soon as tomorrow.
               </h1>
             </Reveal>
@@ -55,7 +55,7 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   onClick={() => scrollToId('pricing')}
-                  className="h-12 w-full gap-2 bg-orange px-7 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-light hover:shadow-md sm:w-auto"
+                  className="gap-2 bg-orange px-7 text-base font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-light hover:shadow-md"
                 >
                   Book your installation <ArrowRight className="size-4" />
                 </Button>
@@ -63,7 +63,7 @@ export function HeroSection() {
                   size="lg"
                   variant="outline"
                   onClick={() => scrollToId('configurator')}
-                  className="h-12 w-full border-brand/20 px-7 text-base font-semibold text-foreground hover:bg-background sm:w-auto"
+                  className="border-brand/20 px-7 text-base font-semibold text-foreground hover:bg-background"
                 >
                   See how it works
                 </Button>
@@ -71,7 +71,7 @@ export function HeroSection() {
             </Reveal>
 
             <Reveal delay={320}>
-              <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 lg:justify-start">
+              <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
                 {TRUST_PILLS.map((pill) => (
                   <li
                     key={pill.label}

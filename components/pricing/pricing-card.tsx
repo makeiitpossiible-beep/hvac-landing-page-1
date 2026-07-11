@@ -66,10 +66,10 @@ export function PricingCard({ tier, onSelect }: PricingCardProps) {
         size="lg"
         onClick={() => onSelect(tier)}
         className={cn(
-          'mt-7 h-11 w-full font-semibold transition-all hover:-translate-y-0.5',
+          'mt-7 w-full font-semibold transition-all hover:-translate-y-0.5',
           tier.highlighted
             ? 'bg-orange text-primary-foreground hover:bg-orange-light'
-            : 'bg-azure text-azure-foreground hover:bg-azure-light',
+            : 'bg-brand text-brand-foreground hover:bg-brand-light',
         )}
       >
         Select &amp; Schedule
