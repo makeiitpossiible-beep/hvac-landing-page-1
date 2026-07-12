@@ -44,9 +44,9 @@ export function HeroSection() {
             <Reveal delay={160}>
               <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
                 NextDay HVAC is a fully licensed and insured installation
-                service. Our NATE-certified local crews handle everything from
-                sizing and permits to installation and old-unit removal, all
-                with upfront pricing and no pushy sales visits.
+                service. Our trained, certified local crews handle everything
+                from sizing and permits to installation and old-unit removal,
+                all with upfront pricing and no pushy sales visits.
               </p>
             </Reveal>
 

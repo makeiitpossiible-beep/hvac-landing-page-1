@@ -37,7 +37,7 @@ export const FEATURES: Feature[] = [
   {
     id: 'certified',
     title: 'Certified Installation',
-    description: 'NATE-certified local crews, every single job.',
+    description: 'Trained, certified local crews on every single job.',
     icon: BadgeCheck,
   },
   {
@@ -78,14 +78,14 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'standard',
     name: 'Standard Efficiency',
-    seer: '14 SEER2',
+    seer: 'Saves ~15%',
     description: 'Dependable cooling at the lowest upfront cost.',
     price: 3500,
     monthlyPayment: 79,
     badge: null,
     highlighted: false,
     features: [
-      'Reliable single-stage cooling',
+      'Reliable, steady cooling',
       'Professional install included',
       'Permits & old-unit removal',
       '10-year parts & labor warranty',
@@ -94,14 +94,14 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'high',
     name: 'High-Efficiency Comfort',
-    seer: '18 SEER2',
+    seer: 'Saves ~30%',
     description: 'Balanced energy savings with quiet operation.',
     price: 4800,
     monthlyPayment: 119,
     badge: 'Best Value',
     highlighted: true,
     features: [
-      'Two-stage energy-saving compressor',
+      'Extra energy-saving cooling',
       'Whisper-quiet operation',
       'Permits & old-unit removal',
       '10-year parts & labor warranty',
@@ -111,14 +111,14 @@ export const PRICING_TIERS: PricingTier[] = [
   {
     id: 'ultimate',
     name: 'Ultimate Smart System',
-    seer: '22+ SEER2',
-    description: 'Variable-speed comfort with smart-home control.',
+    seer: 'Saves ~45%',
+    description: 'Smart, ultra-efficient comfort with app control.',
     price: 6200,
     monthlyPayment: 159,
     badge: null,
     highlighted: false,
     features: [
-      'Variable-speed inverter compressor',
+      'Smart, ultra-efficient cooling',
       'Smart thermostat & app control',
       'Permits & old-unit removal',
       '10-year parts & labor warranty',
@@ -230,7 +230,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     id: 'sizing',
     question: 'How do I know I am choosing the right size system for my home?',
     answer:
-      'Our intelligent online configurator uses your square footage and regional climate data to recommend the perfect system size (tonnage). Once you order, a certified local installation supervisor reviews your home details on a quick 10-minute confirmation call to double-verify the system matches your layout before it leaves our warehouse. If an adjustment is needed, we update it free of charge.',
+      'Our intelligent online configurator uses your square footage and local climate to recommend the right system size for your home. Once you order, a certified local installation supervisor reviews your home details on a quick 10-minute confirmation call to double-verify the system matches your layout before it leaves our warehouse. If an adjustment is needed, we update it free of charge.',
   },
   {
     id: 'pricing',
@@ -307,10 +307,10 @@ export function recommendTier(
   let tierId: PricingTier['id']
 
   if (systemType.id === 'hybrid' || climate.multiplier >= 1.15) {
-    // Variable-speed efficiency for premium systems or demanding humid climates.
+    // Top efficiency for premium systems or demanding humid climates.
     tierId = 'ultimate'
   } else if (sqft > 2400 || climate.multiplier > 1.05) {
-    // Larger homes or hotter/colder climates benefit from two-stage efficiency.
+    // Larger homes or hotter/colder climates benefit from higher efficiency.
     tierId = 'high'
   } else {
     tierId = 'standard'
