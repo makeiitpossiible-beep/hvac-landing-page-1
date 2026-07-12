@@ -268,6 +268,78 @@ Each of the 8 service cards needs a high-quality, realistic photograph. These ca
 
 ## Revision 7 — Smooth Color Palette & Responsive Mobile-First Design
 
+(This revision was reverted in v4. See Revision 8 for the updated approach.)
+
+---
+
+## Revision 8 — Color Palette Refinement: Soften Surroundings, Keep Navy Anchor
+
+To improve visual harmony without replacing the navy brand color, refine the palette by warming the background, adding bridge colors, and tinting sections for a smooth, premium feel:
+
+### 1. Warm the Base White (Biggest Impact)
+Change the page background from pure `#ffffff` to a barely-warm off-white (`#fafbfc`), and keep **pure white for cards** so they gently lift off the page.
+- **Effect**: The navy configurator block and footer no longer collide with harsh pure white — the edges feel softer and more premium.
+- **Files to Update**: `app/globals.css` (base background token)
+
+### 2. Add a Steel-Blue Bridge Color
+Introduce a mid-tone steel-blue (~`#5b7a9d`) as a new token for secondary elements: icons, borders, secondary buttons, dividers, and muted text.
+- **Effect**: Creates a gradient of blues (light tint → steel → navy) so the eye has a natural path instead of jumping white → navy.
+- **Files to Update**: `app/globals.css` (new `--steel-blue` token), any components using secondary icons or borders
+
+### 3. Soften and Alternate Section Backgrounds
+- Soften the existing light blue tint (`#e6f0fb` → `#eef4fb`)
+- Alternate section backgrounds down the page: warm off-white → soft blue tint → warm off-white, etc.
+- Add subtle visual breathing room between sections.
+- **Files to Update**: All section components (hero, features, services, pricing, testimonials, FAQ) with alternating `bg-background` or `bg-brand-tint` classes
+
+### 4. Bridge the Navy Configurator Block
+Add a subtle transition treatment (thin border or tonal step) where the navy configurator block meets sections above/below so it reads as intentional rather than punched out.
+- **Files to Update**: `components/configurator/configurator-section.tsx` (section background and block styling)
+
+### 5. Audit Orange Usage — Keep It Sparse
+Scan all components and restrict orange (`#ff6b35`) to **primary CTAs only** (main "Book"/"Get quote" buttons). Replace any decorative or secondary orange with steel-blue or navy.
+- **Files to Audit**: All section components for stray orange accents
+
+### Color Tokens to Add/Update in `app/globals.css`
+- `--background`: Change to `#fafbfc` (warm off-white)
+- `--card`: Keep or change to `#ffffff` (pure white for cards)
+- `--steel-blue`: New token `#5b7a9d` (mid-tone bridge color)
+- `--brand-tint`: Soften to `#eef4fb` (lighter, softer tint)
+- Navy tokens: Keep `--brand: #1e3a5f` and `--brand-dark: #0f1e35` unchanged
+
+### What Stays the Same
+- Navy configurator block and footer colors
+- Orange hue for primary CTAs
+- Typography, layout structure, and responsive design from Revision 7
+
+---
+
+## Progress Tracking Checklist — Revision 8
+
+- [ ] Warm the Page Background
+  - [ ] Update `--background` token from `#ffffff` to `#fafbfc` in `app/globals.css`
+  - [ ] Ensure `--card` remains or is set to `#ffffff` (pure white)
+  - [ ] Verify layout contrast and text readability
+- [ ] Add Steel-Blue Bridge Color
+  - [ ] Define new `--steel-blue: #5b7a9d` token in `app/globals.css`
+  - [ ] Apply to icon colors, borders, and secondary UI elements
+  - [ ] Audit and update component classes for secondary elements
+- [ ] Soften and Alternate Section Backgrounds
+  - [ ] Soften `--brand-tint` from `#e6f0fb` to `#eef4fb` in `app/globals.css`
+  - [ ] Apply alternating backgrounds to sections: hero (warm), features (tint), services (warm), pricing (tint), testimonials (warm), FAQ (tint)
+  - [ ] Verify smooth visual rhythm down the page
+- [ ] Bridge the Navy Configurator Block
+  - [ ] Add subtle border or background gradient to configurator section
+  - [ ] Ensure navy block transitions smoothly from surrounding sections
+- [ ] Audit and Restrict Orange Usage
+  - [ ] Scan all components for orange accents outside primary CTAs
+  - [ ] Replace secondary/decorative orange with steel-blue or navy
+  - [ ] Files to check: features, services, pricing, testimonials, FAQ, modals
+- [ ] Test and Verify
+  - [ ] Check color contrast ratios for WCAG AA compliance (especially steel-blue on white/backgrounds)
+  - [ ] Verify layouts at desktop (1440px) and mobile (390px)
+  - [ ] Ensure no visual regressions in button states, hover effects, or text readability
+
 To enhance visual harmony and ensure the website is fully responsive across all devices:
 
 ### 1. Create Smooth, Complementary Color Palette
