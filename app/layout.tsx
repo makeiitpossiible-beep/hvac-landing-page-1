@@ -10,7 +10,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nextdayhvac.com'),
+  metadataBase: new URL('https://hvac-landing-page-1-one.vercel.app/'),
   title: 'NextDay HVAC | Upfront Pricing. Next-Day Installation.',
   description:
     'Shop high-efficiency air conditioners, heat pumps, and mini-splits with all-inclusive pricing and certified next-day installation. No surprise quotes, no pushy sales visits.',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: 'NextDay HVAC | Upfront Pricing. Next-Day Installation.',
     description:
       'Shop high-efficiency air conditioners, heat pumps, and mini-splits with all-inclusive pricing and certified next-day installation. No surprise quotes, no pushy sales visits.',
-    url: 'https://nextdayhvac.com',
+    url: 'https://hvac-landing-page-1-one.vercel.app/',
     siteName: 'NextDay HVAC',
     locale: 'en_US',
     type: 'website',
