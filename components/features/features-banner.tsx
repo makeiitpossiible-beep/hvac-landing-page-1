@@ -7,7 +7,7 @@ export function FeaturesBanner() {
   return (
     <section className="border-y border-border bg-brand-tint">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {FEATURES.map((feature, i) => (
             <Reveal key={feature.id} delay={i * 100}>
               <div className="group flex flex-col items-start gap-3">

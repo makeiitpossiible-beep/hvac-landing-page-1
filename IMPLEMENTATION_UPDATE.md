@@ -316,29 +316,29 @@ Scan all components and restrict orange (`#ff6b35`) to **primary CTAs only** (ma
 
 ## Progress Tracking Checklist — Revision 8
 
-- [ ] Warm the Page Background
-  - [ ] Update `--background` token from `#ffffff` to `#fafbfc` in `app/globals.css`
-  - [ ] Ensure `--card` remains or is set to `#ffffff` (pure white)
-  - [ ] Verify layout contrast and text readability
-- [ ] Add Steel-Blue Bridge Color
-  - [ ] Define new `--steel-blue: #5b7a9d` token in `app/globals.css`
-  - [ ] Apply to icon colors, borders, and secondary UI elements
-  - [ ] Audit and update component classes for secondary elements
-- [ ] Soften and Alternate Section Backgrounds
-  - [ ] Soften `--brand-tint` from `#e6f0fb` to `#eef4fb` in `app/globals.css`
-  - [ ] Apply alternating backgrounds to sections: hero (warm), features (tint), services (warm), pricing (tint), testimonials (warm), FAQ (tint)
-  - [ ] Verify smooth visual rhythm down the page
-- [ ] Bridge the Navy Configurator Block
-  - [ ] Add subtle border or background gradient to configurator section
-  - [ ] Ensure navy block transitions smoothly from surrounding sections
-- [ ] Audit and Restrict Orange Usage
-  - [ ] Scan all components for orange accents outside primary CTAs
-  - [ ] Replace secondary/decorative orange with steel-blue or navy
-  - [ ] Files to check: features, services, pricing, testimonials, FAQ, modals
-- [ ] Test and Verify
-  - [ ] Check color contrast ratios for WCAG AA compliance (especially steel-blue on white/backgrounds)
-  - [ ] Verify layouts at desktop (1440px) and mobile (390px)
-  - [ ] Ensure no visual regressions in button states, hover effects, or text readability
+- [x] Warm the Page Background
+  - [x] Update `--background` token from `#ffffff` to `#fafbfc` in `app/globals.css`
+  - [x] Ensure `--card` remains or is set to `#ffffff` (pure white)
+  - [x] Verify layout contrast and text readability
+- [x] Add Steel-Blue Bridge Color
+  - [x] Define new `--steel-blue: #5b7a9d` token in `app/globals.css`
+  - [x] Apply to icon colors, borders, and secondary UI elements
+  - [x] Audit and update component classes for secondary elements
+- [x] Soften and Alternate Section Backgrounds
+  - [x] Soften `--brand-tint` from `#e6f0fb` to `#eef4fb` in `app/globals.css`
+  - [x] Apply alternating backgrounds to sections: hero (warm), features (tint), services (warm), pricing (tint), testimonials (warm), FAQ (tint)
+  - [x] Verify smooth visual rhythm down the page
+- [x] Bridge the Navy Configurator Block
+  - [x] Add subtle border or background gradient to configurator section
+  - [x] Ensure navy block transitions smoothly from surrounding sections
+- [x] Audit and Restrict Orange Usage
+  - [x] Scan all components for orange accents outside primary CTAs
+  - [x] Replace secondary/decorative orange with steel-blue or navy
+  - [x] Files to check: features, services, pricing, testimonials, FAQ, modals
+- [x] Test and Verify
+  - [x] Check color contrast ratios for WCAG AA compliance (especially steel-blue on white/backgrounds)
+  - [x] Verify layouts at desktop (1440px) and mobile (390px)
+  - [x] Ensure no visual regressions in button states, hover effects, or text readability
 
 To enhance visual harmony and ensure the website is fully responsive across all devices:
 

@@ -86,7 +86,7 @@ export function CheckoutModal({ tier, open, onClose }: CheckoutModalProps) {
         {/* Header */}
         <div className="flex items-start justify-between gap-4 border-b border-border bg-secondary px-6 py-5">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-orange">
+            <p className="text-xs font-semibold uppercase tracking-wide text-steel-blue">
               {tier.seer} · {tier.name}
             </p>
             <p className="mt-1 text-2xl font-bold text-foreground">
@@ -113,7 +113,7 @@ export function CheckoutModal({ tier, open, onClose }: CheckoutModalProps) {
                 className={cn(
                   'flex size-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold transition-colors',
                   i < step && 'bg-success text-white',
-                  i === step && 'bg-orange text-white',
+                  i === step && 'bg-brand text-white',
                   i > step && 'bg-muted text-muted-foreground',
                 )}
               >
@@ -179,12 +179,12 @@ export function CheckoutModal({ tier, open, onClose }: CheckoutModalProps) {
                     className={cn(
                       'flex items-center justify-between rounded-lg border px-4 py-3 text-left text-sm font-medium transition-all',
                       slot === s
-                        ? 'border-orange bg-orange/5 text-foreground ring-1 ring-orange'
-                        : 'border-border text-foreground hover:border-orange/50 hover:bg-muted',
+                        ? 'border-steel-blue bg-steel-blue/5 text-foreground ring-1 ring-steel-blue'
+                        : 'border-border text-foreground hover:border-steel-blue/50 hover:bg-muted',
                     )}
                   >
                     {s}
-                    {slot === s && <Check className="size-4 text-orange" />}
+                    {slot === s && <Check className="size-4 text-steel-blue" />}
                   </button>
                 ))}
               </div>
@@ -323,7 +323,7 @@ function Field({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-lg border border-border bg-secondary px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-orange focus:ring-2 focus:ring-orange/20"
+        className="w-full rounded-lg border border-border bg-secondary px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-brand focus:ring-2 focus:ring-brand/20"
       />
     </label>
   )

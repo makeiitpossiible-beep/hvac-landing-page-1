@@ -70,14 +70,14 @@ export function Navbar() {
           <Button
             size="lg"
             onClick={() => handleNav('#pricing')}
-            className="bg-orange px-5 font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-light hover:shadow-md active:translate-y-0"
+            className="hidden sm:inline-flex bg-orange px-5 font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-orange-light hover:shadow-md active:translate-y-0"
           >
             Shop Systems
           </Button>
 
           <button
             onClick={() => setMenuOpen((o) => !o)}
-            className="flex size-9 items-center justify-center rounded-md text-foreground lg:hidden"
+            className="flex size-11 items-center justify-center rounded-md text-foreground lg:hidden focus:outline-none"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
@@ -94,7 +94,7 @@ export function Navbar() {
       <div
         className={cn(
           'overflow-hidden border-t border-border bg-background transition-all duration-300 lg:hidden',
-          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
+          menuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0',
         )}
       >
         <nav
@@ -110,6 +110,15 @@ export function Navbar() {
               {link.label}
             </button>
           ))}
+          <div className="px-3 pt-2">
+            <Button
+              size="lg"
+              onClick={() => handleNav('#pricing')}
+              className="w-full bg-orange font-semibold text-primary-foreground shadow-sm transition-all hover:bg-orange-light"
+            >
+              Shop Systems
+            </Button>
+          </div>
         </nav>
       </div>
     </header>
