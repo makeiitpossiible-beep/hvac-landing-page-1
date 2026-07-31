@@ -85,6 +85,114 @@ Replace with:
 
 ---
 
+## Additional Requirement: Create New /reviews Page
+
+### Reviews Page Scope
+**Purpose:** Build a comprehensive customer reviews page for NextDay HVAC using existing design system.
+
+**URL:** `/reviews`
+
+**Design Requirements:**
+- Use existing site's design system (colors, typography, spacing, button styles, section patterns)
+- Reuse existing review card component design from homepage
+- All body text should be left-aligned (not justified)
+- Display all customer reviews (not limited to 3 like homepage carousel)
+
+### Page Sections (in order)
+
+#### 1. Header Section
+- **Eyebrow Text:** Reuse "REAL RESULTS" style from homepage testimonials section
+- **Headline:** Reviews-page-appropriate headline (e.g., "Homeowners cooled down fast and saved" or similar)
+- **Stat Row:** Reuse stat row from homepage with 4 metrics:
+  - 4.9★ average rating
+  - 2,800+ homes serviced
+  - 94% installs completed by next day
+  - $1,420 average saved
+- **Layout:** Match the existing homepage section header pattern (centered, stacked layout)
+- **Text Alignment:** Center-aligned for eyebrow and headline (already centered sections)
+
+#### 2. Full Reviews Grid
+- **Component Reuse:** Reuse existing review card design from homepage carousel
+- **Card Content Structure:**
+  - 5-star rating row (yellow stars)
+  - Bold review title
+  - Review quote/text
+  - Reviewer name and location
+  - "Verified Customer" badge
+- **Grid Layout:**
+  - **Desktop:** 3 columns
+  - **Tablet:** 2 columns
+  - **Mobile:** 1 column
+- **Display Scope:** All customer reviews (not limited to 3 like homepage)
+- **Text Alignment:** Left-aligned review quotes and descriptions
+- **Responsive Gaps:** Consistent spacing scaled for each breakpoint
+
+#### 3. Pagination or Load More Control
+- **Implementation Option:** Either pagination buttons OR "Load More" button (choose based on review count)
+- **Purpose:** If review count is large, allow visitors to browse/paginate instead of infinite scroll
+- **Replace carousel behavior:** Avoid auto-cycling or timed transitions (static page, user-controlled browsing)
+
+#### 4. CTA Section (Bottom)
+- **Primary CTA:** "Book your installation" button
+- **Styling:** Match homepage hero CTA style and color
+- **Layout:** Centered or paired button layout
+- **Function:** Links to booking flow
+
+### Footer Navigation Update
+- **Update Footer Links:** Change "Reviews" link under "Company" column
+- **Current Behavior:** Likely an anchor link to homepage testimonials section (remove)
+- **New Behavior:** Point to `/reviews` as a proper page link
+- **Note:** Verify footer structure before making change
+
+### Review Content Generation
+**If Real Reviews Don't Exist:**
+- Generate additional realistic sample reviews beyond the 3 shown on homepage
+- Create reviews with:
+  - Varying names and locations (realistic diversity)
+  - Ratings: 4-5 stars (mostly 5-star with some 4-star)
+  - HVAC-related feedback themes:
+    - Fast/next-day installation
+    - Pricing transparency and fair quotes
+    - Technician professionalism and expertise
+    - High-quality workmanship
+    - Friendly service experience
+- **Target:** At least 8-15 total reviews for a full-looking grid
+- **Format:** Match existing review card structure exactly
+
+### Files to Create
+1. **`/app/reviews/page.tsx`**
+   - Main reviews page component
+   - Render header section with stats
+   - Compose review grid with pagination/load-more
+   - Add CTA section at bottom
+   - Set page metadata (title, description for SEO)
+
+2. **`/lib/reviews-data.ts`** (if needed)
+   - Export all review data
+   - Structure: Array of review objects with id, rating, title, quote, name, location, verified badge
+   - If reviews are already defined elsewhere, reuse that file
+
+### Files to Modify
+1. **Footer Component** (likely `/components/footer/footer.tsx` or layout)
+   - Update "Reviews" link under "Company" column
+   - Change from anchor link `#reviews` (or similar) to `/reviews` page link
+   - Verify structure and ensure link text remains "Reviews"
+
+### Files to Reuse (no modifications needed)
+- Review card component (from `/components/reviews/review-card.tsx` or similar)
+- Stat row component (from testimonials section)
+- Section header pattern (eyebrow + headline + description)
+- Button component (from `/components/ui/button.tsx`)
+
+### Design Consistency Notes
+- **Header section styling:** Match homepage "REAL RESULTS" section exactly
+- **Review card styling:** Use identical card component from homepage carousel
+- **Responsive behavior:** Follow existing site breakpoints (mobile: <768px, tablet: 768-1024px, desktop: >1024px)
+- **Color scheme:** Use design system colors (no changes from homepage)
+- **Typography:** All fonts, sizes, and weights match homepage
+
+---
+
 ## Additional Requirement: Create New /about Page
 
 ### About Page Scope
@@ -398,6 +506,19 @@ All 8 services with their corresponding route slugs:
    - `generateStaticParams()` for all 8 services
    - Display service details and CTA
 
+### Files to Create (New Reviews Page)
+1. **`/app/reviews/page.tsx`**
+   - Main reviews page component
+   - Render header section with stats
+   - Compose review grid with pagination/load-more
+   - Add CTA section at bottom
+   - Set page metadata (title, description for SEO)
+
+2. **`/lib/reviews-data.ts`** (if needed)
+   - Export all review data
+   - Structure: Array of review objects (id, rating, title, quote, name, location, verified)
+   - Reuse if reviews data already exists elsewhere
+
 ### Files to Create (New About Page)
 1. **`/app/about/page.tsx`**
    - Main about page component
@@ -423,20 +544,25 @@ All 8 services with their corresponding route slugs:
    - `/components/faq/faq-section.tsx` - Subheading: `justify` → `text-center`, answer text: `justify` → `text-left`
    - `/components/footer/footer.tsx` (or footer section in layout) - Copy: `justify` → `text-left`
 
-2. **Navigation Component** (likely `/components/header/header.tsx` or similar)
+2. **Footer Component** (likely `/components/footer/footer.tsx` or layout)
+   - Update "Reviews" link under "Company" column
+   - Change from anchor link (e.g., `#reviews`) to `/reviews` page link
+   - Ensure link text remains "Reviews"
+
+3. **Navigation Component** (likely `/components/header/header.tsx` or similar)
    - Remove all five anchor-link nav items (Systems, Pricing, Configure, Reviews, FAQ)
    - Add "About" link pointing to `/about` (position between logo and "Shop Systems" button)
    - Keep logo/wordmark on left, "Shop Systems" CTA on right
    - Update flex layout to use `justify-between` for proper spacing
    - Verify responsive behavior on mobile/tablet
 
-3. **`/components/services/services-section.tsx`**
+4. **`/components/services/services-section.tsx`**
    - Remove marquee animation logic
    - Implement static grid layout
    - Update ServiceCard component
    - Add "Learn More" button with Link routing
 
-4. **`/app/globals.css`** (if needed)
+5. **`/app/globals.css`** (if needed)
    - Remove marquee usage (but keep animation definition)
    - No major CSS changes required
 
@@ -506,6 +632,22 @@ Card width: 25% of container
 - [ ] Font sizes, weights, colors, and spacing unchanged
 - [ ] No uneven spacing or ragged edges from justified alignment
 
+### Reviews Page Updates
+- [ ] Page accessible at `/reviews`
+- [ ] Header section renders correctly with eyebrow, headline, and stat row
+- [ ] Stat row displays all 4 metrics (4.9★ rating, 2,800+ homes, 94% completion, $1,420 savings)
+- [ ] All customer reviews display in grid (not limited to 3 like homepage)
+- [ ] Review cards render with: 5-star rating, title, quote, name, location, verified badge
+- [ ] Grid displays 3 columns on desktop, 2 columns on tablet, 1 column on mobile
+- [ ] Pagination or "Load More" control functional (if large review count)
+- [ ] No auto-cycling or timed transitions (static page, user-controlled)
+- [ ] Review quotes are left-aligned (not justified)
+- [ ] CTA button "Book your installation" visible at bottom and functional
+- [ ] Footer "Reviews" link now points to `/reviews` (not anchor link)
+- [ ] All review content generated or sourced (realistic sample reviews if needed)
+- [ ] Page metadata set correctly (title, description, og tags)
+- [ ] Responsive design works on mobile/tablet/desktop
+
 ### About Page Updates
 - [ ] Page accessible at `/about`
 - [ ] All 6 sections render correctly (hero, mission, stats, brands, certifications, CTA)
@@ -549,12 +691,14 @@ Card width: 25% of container
 
 1. **Audit and fix text alignment** - Replace justified text with left-aligned (body) and center-aligned (headings) across all sections
 2. **Simplify navigation bar** - Remove five anchor-link items, keep logo and CTA button, add "About" link
-3. **Create /about page** - Build new company information page with all 6 sections (hero, mission, stats, brands, certifications, CTA)
-4. Create `/app/services/[slug]/page.tsx` and layout
-5. Update `ServiceCard` component to include "Learn More" button
-6. Update `ServicesSection` component to use grid instead of marquee
-7. Remove marquee wrapper and duplicated array logic
-8. Test responsive breakpoints on navigation, about page, and services grid
-9. Verify all routing works
-10. Run build to confirm static generation
+3. **Create /reviews page** - Build customer reviews page with header stats, full review grid, pagination/load-more, and CTA
+4. **Create /about page** - Build company information page with all 6 sections (hero, mission, stats, brands, certifications, CTA)
+5. **Update footer links** - Change "Reviews" link to point to `/reviews` page (remove anchor link)
+6. Create `/app/services/[slug]/page.tsx` and layout
+7. Update `ServiceCard` component to include "Learn More" button
+8. Update `ServicesSection` component to use grid instead of marquee
+9. Remove marquee wrapper and duplicated array logic
+10. Test responsive breakpoints on all new pages and services grid
+11. Verify all routing works
+12. Run build to confirm static generation
 
