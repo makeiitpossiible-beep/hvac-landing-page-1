@@ -158,10 +158,6 @@
   html {
     @apply font-sans scroll-smooth;
   }
-
-  p {
-    @apply text-justify;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

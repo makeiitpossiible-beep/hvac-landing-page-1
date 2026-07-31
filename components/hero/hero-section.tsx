@@ -36,7 +36,7 @@ export function HeroSection() {
           {/* Copy - company introduction */}
           <div className="max-w-xl">
             <Reveal delay={80}>
-              <h1 className="text-balance text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl text-center">
+              <h1 className="text-balance text-left text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
                 Heating &amp; cooling, expertly installed as soon as tomorrow.
               </h1>
             </Reveal>

@@ -9,10 +9,10 @@ export function BrandsBanner() {
         <h2 className="text-center text-xl font-bold text-brand tracking-tight md:text-2xl mb-8">
           Brands we work with
         </h2>
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 place-items-center gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-6 lg:gap-8">
           {/* Voltas */}
           <Reveal delay={0}>
-            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-36 h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
+            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-full max-w-[9rem] h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
               <svg viewBox="0 0 120 30" className="w-full h-auto max-h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <text x="50%" y="22" textAnchor="middle" fontStyle="italic" fontWeight="900" fontFamily="Impact, 'Arial Black', sans-serif" fontSize="22" fill="#0F5B9E" letterSpacing="0.5">
                   VOLTAS
@@ -23,7 +23,7 @@ export function BrandsBanner() {
 
           {/* LG */}
           <Reveal delay={100}>
-            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-36 h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
+            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-full max-w-[9rem] h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
               <svg viewBox="0 0 100 35" className="w-full h-auto max-h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Red/Magenta circle */}
                 <circle cx="16" cy="17.5" r="14" fill="#A50034" />
@@ -43,7 +43,7 @@ export function BrandsBanner() {
 
           {/* Whirlpool */}
           <Reveal delay={200}>
-            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-36 h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
+            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-full max-w-[9rem] h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
               <svg viewBox="0 0 140 40" className="w-full h-auto max-h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Golden swirl ring */}
                 <ellipse cx="70" cy="20" rx="42" ry="11" stroke="#EDC000" strokeWidth="1.8" transform="rotate(-10 70 20)" />
@@ -59,7 +59,7 @@ export function BrandsBanner() {
 
           {/* Blue Star */}
           <Reveal delay={300}>
-            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-36 h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
+            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-full max-w-[9rem] h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
               <svg viewBox="0 0 130 32" className="w-full h-auto max-h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Blue border/bg */}
                 <rect width="130" height="32" fill="#005A9C" />
@@ -77,7 +77,7 @@ export function BrandsBanner() {
 
           {/* Amazon Basics */}
           <Reveal delay={400}>
-            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-36 h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
+            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-full max-w-[9rem] h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
               <svg viewBox="0 0 140 35" className="w-full h-auto max-h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Text */}
                 <text x="50%" y="20" textAnchor="middle" fontFamily="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" fontSize="16" letterSpacing="-0.5">
@@ -93,7 +93,7 @@ export function BrandsBanner() {
 
           {/* Godrej */}
           <Reveal delay={500}>
-            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-36 h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
+            <div className="bg-white px-6 py-4 rounded-lg border border-gray-100 shadow-xs flex items-center justify-center w-full max-w-[9rem] h-16 transition-all duration-300 hover:shadow-sm hover:scale-105">
               <svg viewBox="0 0 110 35" className="w-full h-auto max-h-9" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="godrej-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
