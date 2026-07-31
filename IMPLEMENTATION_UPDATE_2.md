@@ -85,6 +85,112 @@ Replace with:
 
 ---
 
+## Additional Requirement: Create New /about Page
+
+### About Page Scope
+**Purpose:** Build a comprehensive company information page for NextDay HVAC using existing site design system.
+
+**URL:** `/about`
+
+**Design Requirements:**
+- Use existing site's design system (colors, typography, spacing, button styles, section patterns)
+- Ensure page feels native to the rest of the site
+- Reuse existing components where available (brand logos, stat cards, icons)
+- All body text should be left-aligned (not justified)
+
+### Page Sections (in order)
+
+#### 1. Hero Section
+- **Headline:** Introducing the company (e.g., "Who We Are" or "About NextDay HVAC")
+- **Intro Paragraph:** Short company introduction with key differentiators
+- **Company Facts:** Extract from existing footer copy:
+  - Transparent, all-inclusive HVAC pricing
+  - Certified next-day installation
+  - No surprise quotes
+  - No pushy sales visits
+  - License/insurance line: "Lic. #HVAC-884213 · Fully Insured & Bonded"
+- **Text Alignment:** Left-aligned body paragraph
+
+#### 2. Mission/Story Section
+- **Content:** 2-3 short paragraphs on company approach
+- **Key Themes:**
+  - Fast installations
+  - Upfront pricing
+  - Certified local crews
+- **Text Alignment:** Left-aligned body text (not justified)
+- **Layout:** Standard section with heading and paragraphs
+
+#### 3. Stats/Trust Bar Section
+- **Component Reuse:** Reuse stat style from existing testimonials section
+- **Stats to Display:**
+  - 4.9★ average rating
+  - 2,800+ homes serviced
+  - 94% installs completed by next day
+  - $1,420 average saved
+- **Layout:** Horizontal stat row (like existing "Real Results" section)
+- **Format:** Icon/badge + number + label for each stat
+
+#### 4. Brands/Partners Section
+- **Component Reuse:** Reuse existing brand logo row component from homepage
+- **Brands to Display:** Voltas, LG, Whirlpool, Blue Star, AmazonBasics, Coolngi
+- **Layout:** Horizontal scrollable or grid row of logos
+- **Styling:** Match existing brand section styling
+
+#### 5. Certifications/Guarantees Section
+- **Component Reuse:** Reuse 4-column icon-card layout from homepage
+- **Cards to Display:**
+  - Certified Installation
+  - Permits & Disposal
+  - 10-Year Warranty
+  - Free 1st-Year Service
+- **Icons:** Reuse existing icons from homepage
+- **Layout:** 4 columns on desktop, responsive on tablet/mobile
+- **Text Alignment:** Left-aligned descriptions (not justified)
+
+#### 6. CTA Section (Bottom)
+- **Primary CTA:** "Book Your Installation" button linking to booking flow
+- **Secondary Link:** "See How It Works" link
+- **Styling:** Match hero CTA style from homepage
+- **Layout:** Centered or paired button/link layout
+
+### Navigation Updates
+**Add to Main Navigation:**
+- **New nav item:** "About"
+- **Position:** Between logo and "Shop Systems" button (or wherever fits current nav layout)
+- **Link:** Points to `/about`
+- **Implementation:** Update header/nav component to include "About" link
+
+### Files to Create
+1. **`/app/about/page.tsx`**
+   - Main about page component
+   - Import and compose all sections
+   - Set page metadata (title, description for SEO)
+
+2. **`/components/about/about-hero.tsx`**
+   - Hero section component
+   - Headline, intro paragraph, license/insurance info
+
+3. **`/components/about/about-mission.tsx`**
+   - Mission/story section (2-3 paragraphs)
+   - Left-aligned body text
+
+### Files to Reuse (no modifications needed)
+- Existing brand logo row component (from `/components/brands/`)
+- Existing stat card component (from testimonials section)
+- Existing icon-card layout (from certifications/guarantees)
+- Existing button components (from `/components/ui/button.tsx`)
+
+### Files to Modify
+- **Navigation Component** (e.g., `/components/header/header.tsx`)
+  - Add "About" nav link between logo and "Shop Systems" button
+
+### Content Notes
+- **Tone:** Professional, transparent, customer-focused (match existing brand voice)
+- **Facts:** Source from existing footer copy and testimonials section data
+- **Stats:** Use real metrics from testimonials section (4.9★, 2,800+ homes, 94% completion, $1,420 savings)
+
+---
+
 ## Additional Requirement: Navigation Bar Simplification
 
 ### Navigation Bar Scope
@@ -292,6 +398,20 @@ All 8 services with their corresponding route slugs:
    - `generateStaticParams()` for all 8 services
    - Display service details and CTA
 
+### Files to Create (New About Page)
+1. **`/app/about/page.tsx`**
+   - Main about page component
+   - Compose all sections
+   - Add page metadata (title, description, og tags)
+
+2. **`/components/about/about-hero.tsx`**
+   - Hero section: headline, intro paragraph, license/insurance info
+   - Left-aligned body text
+
+3. **`/components/about/about-mission.tsx`**
+   - Mission/story section: 2-3 paragraphs on company approach
+   - Left-aligned body text
+
 ### Files to Modify
 1. **Text Alignment Corrections** (across all sections)
    - `/components/hero/hero.tsx` - Hero paragraph: `justify` → `text-left`
@@ -305,6 +425,7 @@ All 8 services with their corresponding route slugs:
 
 2. **Navigation Component** (likely `/components/header/header.tsx` or similar)
    - Remove all five anchor-link nav items (Systems, Pricing, Configure, Reviews, FAQ)
+   - Add "About" link pointing to `/about` (position between logo and "Shop Systems" button)
    - Keep logo/wordmark on left, "Shop Systems" CTA on right
    - Update flex layout to use `justify-between` for proper spacing
    - Verify responsive behavior on mobile/tablet
@@ -385,13 +506,28 @@ Card width: 25% of container
 - [ ] Font sizes, weights, colors, and spacing unchanged
 - [ ] No uneven spacing or ragged edges from justified alignment
 
+### About Page Updates
+- [ ] Page accessible at `/about`
+- [ ] All 6 sections render correctly (hero, mission, stats, brands, certifications, CTA)
+- [ ] "About" nav link appears between logo and "Shop Systems" button
+- [ ] Hero section displays headline, intro paragraph, and license/insurance info
+- [ ] Mission section displays 2-3 paragraphs with left-aligned body text
+- [ ] Stats section displays all 4 metrics (4.9★, 2,800+ homes, 94% completion, $1,420 savings)
+- [ ] Brand logos render correctly (Voltas, LG, Whirlpool, Blue Star, AmazonBasics, Coolngi)
+- [ ] Certifications section displays 4 icon cards (Certified Installation, Permits & Disposal, 10-Year Warranty, Free 1st-Year Service)
+- [ ] CTA buttons work: "Book Your Installation" links to booking flow, "See How It Works" link functional
+- [ ] Page metadata set correctly (title, description, og tags)
+- [ ] Responsive design works on mobile/tablet/desktop
+- [ ] All text properly left-aligned (not justified)
+
 ### Navigation Updates
 - [ ] All anchor-link nav items removed (Systems, Pricing, Configure, Reviews, FAQ)
+- [ ] "About" nav link added and visible
 - [ ] Logo/wordmark remains visible on left
 - [ ] "Shop Systems" CTA button remains on right
-- [ ] Navigation spacing looks balanced and intentional
+- [ ] Navigation spacing looks balanced and intentional with new "About" link
 - [ ] No empty gaps or awkward centering in nav
-- [ ] Mobile nav is still readable and usable
+- [ ] Mobile nav is still readable and usable with "About" link
 - [ ] Footer navigation unchanged (Systems, Company, Support columns)
 
 ### Services Grid Updates
@@ -412,12 +548,13 @@ Card width: 25% of container
 ## Implementation Order
 
 1. **Audit and fix text alignment** - Replace justified text with left-aligned (body) and center-aligned (headings) across all sections
-2. **Simplify navigation bar** - Remove all five anchor-link items, keep logo and CTA button
-3. Create `/app/services/[slug]/page.tsx` and layout
-4. Update `ServiceCard` component to include "Learn More" button
-5. Update `ServicesSection` component to use grid instead of marquee
-6. Remove marquee wrapper and duplicated array logic
-7. Test responsive breakpoints on navigation and services grid
-8. Verify all routing works
-9. Run build to confirm static generation
+2. **Simplify navigation bar** - Remove five anchor-link items, keep logo and CTA button, add "About" link
+3. **Create /about page** - Build new company information page with all 6 sections (hero, mission, stats, brands, certifications, CTA)
+4. Create `/app/services/[slug]/page.tsx` and layout
+5. Update `ServiceCard` component to include "Learn More" button
+6. Update `ServicesSection` component to use grid instead of marquee
+7. Remove marquee wrapper and duplicated array logic
+8. Test responsive breakpoints on navigation, about page, and services grid
+9. Verify all routing works
+10. Run build to confirm static generation
 
