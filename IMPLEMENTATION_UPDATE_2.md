@@ -26,6 +26,109 @@ Transform the "Our HVAC Service" section from an auto-scrolling infinite carouse
 
 ---
 
+## Additional Requirement: Responsive Design Audit & Fixes
+
+### Responsive Design Scope
+**Purpose:** Audit and fix responsive behavior across the entire site (homepage, /about, /reviews, and any /services/* pages) for mobile (<640px), tablet (640–1024px), and desktop (>1024px). Use Tailwind's standard breakpoints (sm/md/lg/xl).
+
+**Important:** Only fix layout, spacing, and breakpoint behavior. Do NOT change colors, fonts, copy, or component styling.
+
+### Breakpoint Targets
+- **Mobile:** < 640px (sm)
+- **Tablet:** 640–1024px (md/lg)
+- **Desktop:** > 1024px (xl)
+
+### Responsive Requirements by Section
+
+#### 1. Navigation Bar
+- **Mobile/Tablet:** Collapse into hamburger menu icon; slide-out or dropdown panel with nav links (Home, Services, About, Reviews) and "Shop Systems" CTA
+- **Desktop:** Current horizontal layout maintained
+- **Logo:** Stay visible and appropriately sized at all breakpoints
+- **Behavior:** No nav items wrapping or overflow on smaller screens
+- **Touch Targets:** All nav links/buttons at least 44px tall on mobile
+
+#### 2. Hero Section
+- **Mobile/Tablet:** Stack two-column layout (headline/text + image) into single column; image appears below text
+- **Font Sizing:** Scale headline font size down on mobile to prevent awkward wrapping or overflow
+- **CTA Buttons:** Stack "Book your installation" and "See how it works" full-width or centered on mobile instead of side-by-side
+- **Floating Rating Card:** Keep 4.9 rating / 2,800+ homes readable and properly positioned relative to image; prevent overlap with text or clipping
+
+#### 3. Brands / Partner Logos Section
+- **Desktop:** 6 columns
+- **Tablet:** 3 columns, wrapping into multiple rows
+- **Mobile:** 2 columns, wrapping into multiple rows
+
+#### 4. Trust/Certifications Bar (Certified Installation, Permits & Disposal, 10-Year Warranty, Free 1st-Year Service)
+- **Desktop:** 4 columns
+- **Tablet:** 2 columns
+- **Mobile:** 1 column (stacked vertically)
+
+#### 5. Services Grid (2×4 Cards)
+- **Desktop:** 4 columns (2 rows of 4)
+- **Tablet:** 2 columns (4 rows of 2)
+- **Mobile:** 1 column (8 rows of 1)
+- **Cards:** Ensure card images, icon badges, and Learn More buttons scale properly; text must not overflow cards
+
+#### 6. Pricing Section
+- **Desktop/Tablet:** 3 cards side-by-side
+- **Mobile:** Stack vertically (1 column)
+- **Best Value Card:** Keep highlighted card visually distinct (border/badge) even when stacked
+- **Readability:** Price, features list, and button remain fully readable without horizontal scrolling
+
+#### 7. System Configurator
+- **Mobile/Tablet:** Stack two-column layout (form controls + recommendation summary) into single column; recommendation summary appears below form
+- **Form Elements:** Ensure home size slider, climate buttons, and system type buttons wrap or resize properly without overflowing screen width
+- **Desktop:** Maintain current two-column layout
+
+#### 8. Testimonials/Reviews Section (and /reviews Page Grid)
+- **Desktop:** 3 columns
+- **Tablet:** 2 columns
+- **Mobile:** 1 column
+- **Homepage Carousel:** Keep carousel arrows/dots accessible and properly positioned on smaller screens
+- **/reviews Page:** Grid and pagination/load-more control remain usable on mobile
+
+#### 9. FAQ Accordion
+- **All Breakpoints:** Full-width behavior on mobile with no text overflow
+- **Icons:** Expand/collapse icons remain aligned correctly at all sizes
+
+#### 10. Footer
+- **Desktop:** 4-column layout (brand info, Systems, Company, Support, "Need a custom fit?" card)
+- **Tablet:** 2 columns
+- **Mobile:** Single-column stacked layout
+- **Copyright Row:** Stack "© 2026 NextDay HVAC" and Privacy/Terms/Accessibility links vertically on mobile if they don't fit on one line
+
+#### 11. /about and /reviews Pages
+- **Reused Components:** Apply same responsive rules to any reused components (stat rows, brand logos, certification cards, CTA sections)
+- **Behavior:** Reused components should behave identically to their homepage counterparts at each breakpoint
+
+### General Responsive Rules
+- **No Horizontal Scrolling:** At any breakpoint
+- **Touch Targets:** Buttons, nav links, accordion triggers at least 44px tall on mobile
+- **Images:** Scale/crop gracefully rather than stretching or overflowing their containers
+- **Text Overflow:** No clipping, wrapping, or horizontal scrolling for any text content
+
+### Files to Audit
+1. **Navigation:** `/components/header/header.tsx` (or similar)
+2. **Hero:** `/components/hero/hero.tsx`
+3. **Brands:** `/components/brands/brands-section.tsx`
+4. **Trust Bar:** `/components/brands/brands-section.tsx` or `/components/certifications/certifications-section.tsx`
+5. **Services Grid:** `/components/services/services-section.tsx`
+6. **Pricing:** `/components/pricing/pricing-section.tsx`
+7. **Configurator:** `/components/configurator/configurator-section.tsx`
+8. **Testimonials:** `/components/reviews/reviews-section.tsx`
+9. **FAQ:** `/components/faq/faq-section.tsx`
+10. **Footer:** `/components/footer/footer.tsx`
+11. **New Pages:** `/app/about/page.tsx`, `/app/reviews/page.tsx`, `/app/services/[slug]/page.tsx`
+
+### Responsive Testing Approach
+- Test each section independently at all three breakpoints (mobile: 375px, tablet: 768px, desktop: 1440px)
+- Use browser DevTools to simulate responsive behavior
+- Verify no overflow, clipping, or unintended wrapping occurs
+- Check touch target sizes (44px minimum) on mobile
+- Verify all images scale and crop gracefully
+
+---
+
 ## Additional Requirement: Text Alignment Audit & Correction
 
 ### Text Alignment Scope
@@ -506,6 +609,14 @@ All 8 services with their corresponding route slugs:
    - `generateStaticParams()` for all 8 services
    - Display service details and CTA
 
+### Files to Fix/Audit (Responsive Design Across All Sections)
+**No new files created for this requirement.** Update existing components with responsive breakpoints and mobile-first design patterns:
+1. **Navigation:** Add hamburger menu and slide-out panel for mobile/tablet
+2. **Hero, Brands, Trust Bar, Services, Pricing, Configurator, Testimonials, FAQ, Footer:** Update Tailwind breakpoint classes (sm/md/lg/xl) for responsive grid/column changes
+3. **All Pages:** Verify responsive behavior on new /about, /reviews, and /services/[slug] pages
+
+---
+
 ### Files to Create (New Reviews Page)
 1. **`/app/reviews/page.tsx`**
    - Main reviews page component
@@ -534,7 +645,19 @@ All 8 services with their corresponding route slugs:
    - Left-aligned body text
 
 ### Files to Modify
-1. **Text Alignment Corrections** (across all sections)
+1. **Responsive Design Fixes** (across all sections)
+   - `/components/header/header.tsx` - Add hamburger menu, slide-out panel, responsive logo sizing
+   - `/components/hero/hero.tsx` - Stack columns on mobile/tablet, scale fonts, adjust CTA buttons
+   - `/components/brands/brands-section.tsx` - Responsive grid: 6→3→2 columns
+   - Certifications bar - Responsive grid: 4→2→1 columns
+   - `/components/services/services-section.tsx` - Responsive grid: 4→2→1 columns
+   - `/components/pricing/pricing-section.tsx` - Stack cards vertically on mobile/tablet
+   - `/components/configurator/configurator-section.tsx` - Stack form + summary on mobile/tablet
+   - `/components/reviews/reviews-section.tsx` - Responsive grid: 3→2→1 columns
+   - `/components/faq/faq-section.tsx` - Full-width, aligned icons
+   - `/components/footer/footer.tsx` - Stack 4-column layout to 2 columns on tablet, 1 on mobile
+
+2. **Text Alignment Corrections** (across all sections)
    - `/components/hero/hero.tsx` - Hero paragraph: `justify` → `text-left`
    - `/components/services/services-section.tsx` - Card descriptions: `justify` → `text-left`
    - `/components/brands/brands-section.tsx` - Badge descriptions: `justify` → `text-left`
@@ -617,6 +740,36 @@ Card width: 25% of container
 
 ## Testing Checklist
 
+### Responsive Design Updates
+**Test at all three breakpoints: Mobile (375px), Tablet (768px), Desktop (1440px)**
+
+- [ ] Navigation: Hamburger menu visible on mobile/tablet, horizontal layout on desktop
+- [ ] Navigation: Slide-out panel displays all nav links and CTA button on mobile/tablet
+- [ ] Navigation: Logo visible and appropriately sized at all breakpoints
+- [ ] Hero: Columns stack vertically on mobile/tablet (text above image)
+- [ ] Hero: Headline font size reduces on mobile, no awkward wrapping
+- [ ] Hero: CTA buttons stack full-width on mobile, side-by-side on desktop
+- [ ] Hero: Floating rating card positioned correctly, no overlap with text
+- [ ] Brands section: 6 columns on desktop, 3 on tablet, 2 on mobile
+- [ ] Trust/Certifications bar: 4 columns on desktop, 2 on tablet, 1 on mobile
+- [ ] Services grid: 4 columns on desktop, 2 on tablet, 1 on mobile
+- [ ] Services cards: Images, icons, and buttons scale properly, no text overflow
+- [ ] Pricing section: 3 cards side-by-side on desktop, stacked on mobile/tablet
+- [ ] Pricing: "Best Value" card remains visually distinct when stacked
+- [ ] Configurator: Two columns on desktop, stacked on mobile/tablet
+- [ ] Configurator: Form elements (slider, buttons) wrap/resize without overflow
+- [ ] Testimonials: 3 columns on desktop, 2 on tablet, 1 on mobile
+- [ ] Testimonials: Carousel arrows/dots accessible on mobile
+- [ ] FAQ accordion: Full-width on mobile, expand/collapse icons aligned
+- [ ] Footer: 4 columns on desktop, 2 on tablet, 1 column on mobile
+- [ ] Footer: Copyright and legal links stack vertically on mobile if needed
+- [ ] /about page: All sections responsive, reused components match homepage behavior
+- [ ] /reviews page: Grid responsive, pagination/load-more usable on mobile
+- [ ] /services/[slug] pages: All elements responsive and readable
+- [ ] No horizontal scrolling at any breakpoint
+- [ ] All touch targets (buttons, links, accordion triggers) at least 44px on mobile
+- [ ] Images scale/crop gracefully, no stretching or overflow
+
 ### Text Alignment Updates
 - [ ] Hero paragraph is left-aligned (not justified)
 - [ ] Section subheadings are center-aligned (only where already centered)
@@ -689,16 +842,17 @@ Card width: 25% of container
 
 ## Implementation Order
 
-1. **Audit and fix text alignment** - Replace justified text with left-aligned (body) and center-aligned (headings) across all sections
-2. **Simplify navigation bar** - Remove five anchor-link items, keep logo and CTA button, add "About" link
-3. **Create /reviews page** - Build customer reviews page with header stats, full review grid, pagination/load-more, and CTA
-4. **Create /about page** - Build company information page with all 6 sections (hero, mission, stats, brands, certifications, CTA)
-5. **Update footer links** - Change "Reviews" link to point to `/reviews` page (remove anchor link)
-6. Create `/app/services/[slug]/page.tsx` and layout
-7. Update `ServiceCard` component to include "Learn More" button
-8. Update `ServicesSection` component to use grid instead of marquee
-9. Remove marquee wrapper and duplicated array logic
-10. Test responsive breakpoints on all new pages and services grid
+1. **Audit and fix responsive design** - Test all sections at mobile/tablet/desktop breakpoints; add hamburger menu, stack layouts, fix overflow/scrolling issues across entire site
+2. **Audit and fix text alignment** - Replace justified text with left-aligned (body) and center-aligned (headings) across all sections
+3. **Simplify navigation bar** - Remove five anchor-link items, keep logo and CTA button, add "About" link
+4. **Create /reviews page** - Build customer reviews page with header stats, full review grid, pagination/load-more, and CTA
+5. **Create /about page** - Build company information page with all 6 sections (hero, mission, stats, brands, certifications, CTA)
+6. **Update footer links** - Change "Reviews" link to point to `/reviews` page (remove anchor link)
+7. Create `/app/services/[slug]/page.tsx` and layout
+8. Update `ServiceCard` component to include "Learn More" button
+9. Update `ServicesSection` component to use grid instead of marquee
+10. Remove marquee wrapper and duplicated array logic
 11. Verify all routing works
-12. Run build to confirm static generation
+12. Run final responsive testing on all new pages and updated sections
+13. Run build to confirm static generation
 
