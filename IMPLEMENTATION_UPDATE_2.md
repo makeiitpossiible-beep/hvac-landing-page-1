@@ -26,6 +26,65 @@ Transform the "Our HVAC Service" section from an auto-scrolling infinite carouse
 
 ---
 
+## Additional Requirement: Text Alignment Audit & Correction
+
+### Text Alignment Scope
+**Current Issue:** Justified text alignment (`text-align: justify` / Tailwind's `text-justify`) is applied throughout the site, creating uneven spacing and poor readability.
+
+**Areas Affected:**
+- Hero paragraph text
+- Section subheadings (e.g., "Choose best technicians and latest HVAC technology")
+- Service card descriptions
+- Brand/trust-badge descriptions ("Certified Installation," "Permits & Disposal," etc.)
+- Pricing tier descriptions
+- Testimonial quotes
+- FAQ answer text
+- Footer description text
+
+### Text Alignment Replacement Rules
+**For Body Paragraphs, Descriptions, and Multi-Line Text:**
+- Replace `justify` with `text-left` (left-aligned)
+- Applies to:
+  - Card descriptions (services, pricing)
+  - Testimonial quotes
+  - FAQ answer text
+  - Footer copy and descriptions
+  - Hero paragraph
+
+**For Short Headings/Subheadings (Already Center-Positioned):**
+- Replace `justify` with `text-center` (center-aligned)
+- Applies ONLY to short eyebrow text and section subheadings that are already center-positioned:
+  - Section eyebrow text ("GOOD TO KNOW," "REAL RESULTS," "BUILD YOUR SYSTEM," etc.)
+  - Their accompanying headline/subheadline pairs in center-positioned sections
+
+**Important Notes:**
+- Do NOT change font size, weight, color, or spacing
+- Only modify the text-alignment property
+- Apply changes consistently across EVERY section
+
+### Files to Audit
+1. **`/components/hero/hero.tsx`** - Hero paragraph
+2. **`/components/services/services-section.tsx`** - Service card descriptions
+3. **`/components/brands/brands-section.tsx`** - Brand/trust-badge descriptions
+4. **`/components/pricing/pricing-section.tsx`** - Section subheading, pricing tier descriptions
+5. **`/components/configurator/configurator-section.tsx`** - Configurator descriptions
+6. **`/components/reviews/reviews-section.tsx`** - Section subheading, testimonial quotes
+7. **`/components/faq/faq-section.tsx`** - Section subheading, FAQ answer text
+8. **`/app/layout.tsx` or `/components/footer/footer.tsx`** - Footer description and copy
+
+### Search Pattern
+Search for these Tailwind classes and HTML attributes:
+- `text-justify`
+- `text-align: justify` (inline styles)
+- `justify` (in className, check context to ensure it's text-justify, not flexbox justify-*)
+
+### Correction Pattern
+Replace with:
+- `text-left` for body/multi-line content
+- `text-center` for short center-positioned headings (verify context first)
+
+---
+
 ## Additional Requirement: Navigation Bar Simplification
 
 ### Navigation Bar Scope
@@ -234,19 +293,29 @@ All 8 services with their corresponding route slugs:
    - Display service details and CTA
 
 ### Files to Modify
-1. **Navigation Component** (likely `/components/header/header.tsx` or similar)
+1. **Text Alignment Corrections** (across all sections)
+   - `/components/hero/hero.tsx` - Hero paragraph: `justify` → `text-left`
+   - `/components/services/services-section.tsx` - Card descriptions: `justify` → `text-left`
+   - `/components/brands/brands-section.tsx` - Badge descriptions: `justify` → `text-left`
+   - `/components/pricing/pricing-section.tsx` - Subheading: `justify` → `text-center`, tier descriptions: `justify` → `text-left`
+   - `/components/configurator/configurator-section.tsx` - Descriptions: `justify` → `text-left`
+   - `/components/reviews/reviews-section.tsx` - Subheading: `justify` → `text-center`, quotes: `justify` → `text-left`
+   - `/components/faq/faq-section.tsx` - Subheading: `justify` → `text-center`, answer text: `justify` → `text-left`
+   - `/components/footer/footer.tsx` (or footer section in layout) - Copy: `justify` → `text-left`
+
+2. **Navigation Component** (likely `/components/header/header.tsx` or similar)
    - Remove all five anchor-link nav items (Systems, Pricing, Configure, Reviews, FAQ)
    - Keep logo/wordmark on left, "Shop Systems" CTA on right
    - Update flex layout to use `justify-between` for proper spacing
    - Verify responsive behavior on mobile/tablet
 
-2. **`/components/services/services-section.tsx`**
+3. **`/components/services/services-section.tsx`**
    - Remove marquee animation logic
    - Implement static grid layout
    - Update ServiceCard component
    - Add "Learn More" button with Link routing
 
-3. **`/app/globals.css`** (if needed)
+4. **`/app/globals.css`** (if needed)
    - Remove marquee usage (but keep animation definition)
    - No major CSS changes required
 
@@ -301,6 +370,21 @@ Card width: 25% of container
 
 ## Testing Checklist
 
+### Text Alignment Updates
+- [ ] Hero paragraph is left-aligned (not justified)
+- [ ] Section subheadings are center-aligned (only where already centered)
+- [ ] Service card descriptions are left-aligned
+- [ ] Brand/trust-badge descriptions are left-aligned
+- [ ] Pricing tier descriptions are left-aligned
+- [ ] Pricing section subheading is center-aligned
+- [ ] Testimonial quotes are left-aligned
+- [ ] Reviews section subheading is center-aligned
+- [ ] FAQ answer text is left-aligned
+- [ ] FAQ section subheading is center-aligned
+- [ ] Footer copy is left-aligned
+- [ ] Font sizes, weights, colors, and spacing unchanged
+- [ ] No uneven spacing or ragged edges from justified alignment
+
 ### Navigation Updates
 - [ ] All anchor-link nav items removed (Systems, Pricing, Configure, Reviews, FAQ)
 - [ ] Logo/wordmark remains visible on left
@@ -327,12 +411,13 @@ Card width: 25% of container
 
 ## Implementation Order
 
-1. **Simplify navigation bar** - Remove all five anchor-link items, keep logo and CTA button
-2. Create `/app/services/[slug]/page.tsx` and layout
-3. Update `ServiceCard` component to include "Learn More" button
-4. Update `ServicesSection` component to use grid instead of marquee
-5. Remove marquee wrapper and duplicated array logic
-6. Test responsive breakpoints on navigation and services grid
-7. Verify all routing works
-8. Run build to confirm static generation
+1. **Audit and fix text alignment** - Replace justified text with left-aligned (body) and center-aligned (headings) across all sections
+2. **Simplify navigation bar** - Remove all five anchor-link items, keep logo and CTA button
+3. Create `/app/services/[slug]/page.tsx` and layout
+4. Update `ServiceCard` component to include "Learn More" button
+5. Update `ServicesSection` component to use grid instead of marquee
+6. Remove marquee wrapper and duplicated array logic
+7. Test responsive breakpoints on navigation and services grid
+8. Verify all routing works
+9. Run build to confirm static generation
 
