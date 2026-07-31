@@ -26,9 +26,64 @@ Transform the "Our HVAC Service" section from an auto-scrolling infinite carouse
 
 ---
 
+## Additional Requirement: Navigation Bar Simplification
+
+### Navigation Bar Scope
+**Current Navigation Items to Remove:**
+- Systems (anchor link to services grid)
+- Pricing (anchor link to pricing section)
+- Configure (anchor link to system configurator)
+- Reviews (anchor link to testimonials section)
+- FAQ (anchor link to FAQ accordion section)
+
+**Navigation Bar to Keep:**
+- Logo/wordmark on the left
+- "Shop Systems" CTA button on the right
+
+**Important Notes:**
+- Do NOT modify footer navigation (Systems, Company, Support columns already point to separate pages)
+- Footer links should remain as-is unless separately reviewed
+- Adjust nav spacing/alignment to look intentional and balanced with fewer items
+- Eliminate empty gaps or awkward centering
+
+### Navigation Implementation Details
+**File to Modify:**
+- `/components/header/header.tsx` (or similar navigation component)
+
+**Changes:**
+1. **Remove navigation links**: Delete all anchor-link items (Systems, Pricing, Configure, Reviews, FAQ)
+2. **Maintain structure**: Keep logo and "Shop Systems" button
+3. **Adjust spacing**: Use `justify-between` flexbox to spread logo to left and button to right
+4. **Remove unused nav container**: If the nav was in a separate container, either remove or style appropriately
+5. **Test responsive**: Ensure mobile/tablet views still look balanced with just logo and CTA
+
+**Layout Structure:**
+```
+[Logo/Wordmark]                    [Shop Systems Button]
+```
+
+---
+
 ## Implementation Steps
 
-### Step 1: Create Service Detail Page Structure
+### Step 1: Simplify Navigation Bar
+**File to Modify:** Navigation component (likely `/components/header/header.tsx` or embedded in layout)
+
+**Changes:**
+1. Remove all five anchor-link nav items
+2. Keep logo on left and "Shop Systems" button on right
+3. Use `flex justify-between items-center` for clean alignment
+4. Remove or hide nav-specific spacing/containers
+5. Verify responsive design on mobile/tablet
+
+**Spacing Considerations:**
+- Use `justify-between` to spread items with automatic spacing
+- Add reasonable padding to container (left/right margin)
+- Ensure button remains clickable and visible on all screen sizes
+
+---
+
+### Step 2: Create Service Detail Page Structure
 **Files to Create:**
 - `/app/services/[slug]/page.tsx` - Dynamic service detail page
 - `/app/services/layout.tsx` - Optional shared layout for services section
@@ -179,13 +234,19 @@ All 8 services with their corresponding route slugs:
    - Display service details and CTA
 
 ### Files to Modify
-1. **`/components/services/services-section.tsx`**
+1. **Navigation Component** (likely `/components/header/header.tsx` or similar)
+   - Remove all five anchor-link nav items (Systems, Pricing, Configure, Reviews, FAQ)
+   - Keep logo/wordmark on left, "Shop Systems" CTA on right
+   - Update flex layout to use `justify-between` for proper spacing
+   - Verify responsive behavior on mobile/tablet
+
+2. **`/components/services/services-section.tsx`**
    - Remove marquee animation logic
    - Implement static grid layout
    - Update ServiceCard component
    - Add "Learn More" button with Link routing
 
-2. **`/app/globals.css`** (if needed)
+3. **`/app/globals.css`** (if needed)
    - Remove marquee usage (but keep animation definition)
    - No major CSS changes required
 
@@ -240,6 +301,16 @@ Card width: 25% of container
 
 ## Testing Checklist
 
+### Navigation Updates
+- [ ] All anchor-link nav items removed (Systems, Pricing, Configure, Reviews, FAQ)
+- [ ] Logo/wordmark remains visible on left
+- [ ] "Shop Systems" CTA button remains on right
+- [ ] Navigation spacing looks balanced and intentional
+- [ ] No empty gaps or awkward centering in nav
+- [ ] Mobile nav is still readable and usable
+- [ ] Footer navigation unchanged (Systems, Company, Support columns)
+
+### Services Grid Updates
 - [ ] Grid displays 1 column on mobile
 - [ ] Grid displays 2 columns on tablet
 - [ ] Grid displays 4 columns (2 rows) on desktop
@@ -256,11 +327,12 @@ Card width: 25% of container
 
 ## Implementation Order
 
-1. Create `/app/services/[slug]/page.tsx` and layout
-2. Update `ServiceCard` component to include "Learn More" button
-3. Update `ServicesSection` component to use grid instead of marquee
-4. Remove marquee wrapper and duplicated array logic
-5. Test responsive breakpoints
-6. Verify all routing works
-7. Run build to confirm static generation
+1. **Simplify navigation bar** - Remove all five anchor-link items, keep logo and CTA button
+2. Create `/app/services/[slug]/page.tsx` and layout
+3. Update `ServiceCard` component to include "Learn More" button
+4. Update `ServicesSection` component to use grid instead of marquee
+5. Remove marquee wrapper and duplicated array logic
+6. Test responsive breakpoints on navigation and services grid
+7. Verify all routing works
+8. Run build to confirm static generation
 
