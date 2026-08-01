@@ -1,10 +1,16 @@
-'use client'
-
 import { ShieldCheck, Phone, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
 import { BRAND, FOOTER_LINKS } from '@/lib/constants'
-import { scrollToId } from '@/lib/format'
+
+/** Normalizes a footer href so links resolve from any page (home-anchor, route, or top). */
+function resolveHref(href: string): string {
+  if (href.startsWith('/')) return href
+  if (href === '#') return '/'
+  return `/${href}`
+}
 
 export function Footer() {
   return (
@@ -53,12 +59,12 @@ export function Footer() {
                 <ul className="mt-4 space-y-3">
                   {links.map((link) => (
                     <li key={link.label}>
-                      <button
-                        onClick={() => scrollToId(link.href.replace('#', ''))}
+                      <Link
+                        href={resolveHref(link.href)}
                         className="text-sm text-brand-foreground/65 transition-colors hover:text-orange-light"
                       >
                         {link.label}
-                      </button>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -76,14 +82,16 @@ export function Footer() {
                 Use our configurator to size the perfect system for your home in
                 under a minute.
               </p>
-              <Button
-                size="lg"
-                onClick={() => scrollToId('configurator')}
-                className="mt-4 w-full gap-2 bg-orange font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-orange-light"
+              <Link
+                href="/#configurator"
+                className={cn(
+                  buttonVariants({ size: 'lg' }),
+                  'mt-4 w-full gap-2 bg-orange font-semibold text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-orange-light',
+                )}
               >
                 Configure System
                 <ArrowRight className="size-4" aria-hidden="true" />
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

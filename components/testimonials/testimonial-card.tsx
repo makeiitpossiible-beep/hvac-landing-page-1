@@ -6,6 +6,17 @@ interface TestimonialCardProps {
   testimonial: Testimonial
 }
 
+/** Derives up to two uppercase initials from an author name. */
+function getInitials(name: string): string {
+  return name
+    .replace(/[^a-zA-Z\s]/g, '')
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('')
+}
+
 export function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <figure className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -32,13 +43,22 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
       </blockquote>
 
       <figcaption className="mt-5 flex items-center gap-3 border-t border-border pt-4">
-        <Image
-          src={testimonial.image || '/placeholder.svg'}
-          alt={`Portrait of ${testimonial.author}`}
-          width={48}
-          height={48}
-          className="size-12 shrink-0 rounded-full object-cover"
-        />
+        {testimonial.image ? (
+          <Image
+            src={testimonial.image || '/placeholder.svg'}
+            alt={`Portrait of ${testimonial.author}`}
+            width={48}
+            height={48}
+            className="size-12 shrink-0 rounded-full object-cover"
+          />
+        ) : (
+          <span
+            aria-hidden="true"
+            className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand-tint text-sm font-bold text-brand"
+          >
+            {getInitials(testimonial.author)}
+          </span>
+        )}
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-semibold text-foreground">
             {testimonial.author}

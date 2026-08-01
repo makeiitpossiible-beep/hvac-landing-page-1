@@ -1,107 +1,40 @@
 'use client'
 
 import Image from 'next/image'
-import {
-  Snowflake,
-  Flame,
-  RefreshCw,
-  AirVent,
-  Waypoints,
-  Building2,
-  Leaf,
-  Wrench,
-  type LucideIcon,
-} from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-
-interface Service {
-  id: string
-  title: string
-  description: string
-  image: string
-  icon: LucideIcon
-}
-
-const SERVICES: Service[] = [
-  {
-    id: 'air-conditioning',
-    title: 'Air Conditioning',
-    description: 'Installation, repair and maintenance for reliable cooling and comfort.',
-    image: '/images/services/air-conditioning.png',
-    icon: Snowflake,
-  },
-  {
-    id: 'heating-systems',
-    title: 'Heating Systems',
-    description: 'Furnaces, boilers and more to keep your home warm all winter long.',
-    image: '/images/services/heating-systems.png',
-    icon: Flame,
-  },
-  {
-    id: 'heat-pumps',
-    title: 'Heat Pumps',
-    description: 'Efficient heating and cooling solutions that save energy year-round.',
-    image: '/images/services/heat-pumps.png',
-    icon: RefreshCw,
-  },
-  {
-    id: 'ductless-mini-splits',
-    title: 'Ductless Mini-Splits',
-    description: 'Flexible, energy-efficient comfort for any room or addition.',
-    image: '/images/services/ductless-mini-splits.png',
-    icon: AirVent,
-  },
-  {
-    id: 'ductwork',
-    title: 'Ductwork',
-    description: 'Custom installation, repair and cleaning for improved airflow and efficiency.',
-    image: '/images/services/ductwork.png',
-    icon: Waypoints,
-  },
-  {
-    id: 'commercial-hvac',
-    title: 'Commercial HVAC',
-    description: 'Reliable HVAC solutions for businesses of all sizes and industries.',
-    image: '/images/services/commercial-hvac.png',
-    icon: Building2,
-  },
-  {
-    id: 'indoor-air-quality',
-    title: 'Indoor Air Quality',
-    description: 'Cleaner, healthier indoor air for your family and peace of mind.',
-    image: '/images/services/indoor-air-quality.png',
-    icon: Leaf,
-  },
-  {
-    id: 'maintenance-repairs',
-    title: 'Maintenance & Repairs',
-    description: 'Keep your system running at its best with expert care and fast repairs.',
-    image: '/images/services/maintenance-repairs.png',
-    icon: Wrench,
-  },
-]
+import { SERVICES, type Service } from '@/lib/services'
 
 function ServiceCard({ service }: { service: Service }) {
   const Icon = service.icon
   return (
-    <article className="w-[280px] shrink-0 overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       <div className="relative h-44 w-full">
         <Image
           src={service.image || '/placeholder.svg'}
           alt={`${service.title} service`}
           fill
-          sizes="280px"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover"
         />
-        <span className="absolute -bottom-6 left-1/2 flex size-14 -translate-x-1/2 items-center justify-center rounded-full bg-card text-brand shadow-md ring-1 ring-border">
+        <span className="absolute -bottom-6 left-5 flex size-14 items-center justify-center rounded-full bg-card text-brand shadow-md ring-1 ring-border">
           <Icon className="size-6" aria-hidden="true" />
         </span>
       </div>
-      <div className="px-5 pb-6 pt-9 text-center">
+      <div className="flex flex-1 flex-col px-5 pb-6 pt-9">
         <h3 className="text-lg font-bold text-brand">{service.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
+        <p className="mt-2 flex-1 text-left text-sm leading-relaxed text-muted-foreground text-pretty">
           {service.description}
         </p>
+        <Link
+          href={`/services/${service.id}`}
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-orange transition-colors hover:text-orange-dark"
+        >
+          Learn More
+          <ArrowRight className="size-4" aria-hidden="true" />
+          <span className="sr-only"> about {service.title}</span>
+        </Link>
       </div>
     </article>
   )
@@ -109,29 +42,25 @@ function ServiceCard({ service }: { service: Service }) {
 
 export function ServicesSection() {
   return (
-    <section className="border-b border-border bg-secondary py-16">
+    <section
+      id="services"
+      className="border-b border-border bg-secondary py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-col items-center text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-brand md:text-4xl text-center">
+          <h2 className="text-center text-3xl font-bold tracking-tight text-brand md:text-4xl">
             Our HVAC Service
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-base text-muted-foreground text-center">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-base text-muted-foreground">
             Choose best technicians and latest HVAC technology
           </p>
         </Reveal>
-      </div>
 
-      <div
-        className="group relative mt-12 overflow-hidden"
-        aria-label="HVAC services"
-      >
-        {/* Edge fade masks */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-secondary to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-secondary to-transparent" />
-
-        <div className="flex w-max animate-marquee gap-6 pt-2 pb-4 group-hover:[animation-play-state:paused]">
-          {[...SERVICES, ...SERVICES].map((service, i) => (
-            <ServiceCard key={`${service.id}-${i}`} service={service} />
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {SERVICES.map((service, i) => (
+            <Reveal key={service.id} delay={(i % 4) * 80} className="h-full">
+              <ServiceCard service={service} />
+            </Reveal>
           ))}
         </div>
       </div>

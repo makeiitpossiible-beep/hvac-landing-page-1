@@ -151,7 +151,7 @@ export interface Testimonial {
   author: string
   location: string
   badge: string
-  image: string
+  image?: string
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -331,7 +331,7 @@ export const FOOTER_LINKS = {
   Company: [
     { label: 'How It Works', href: '#configurator' },
     { label: 'Pricing', href: '#pricing' },
-    { label: 'Reviews', href: '#reviews' },
+    { label: 'Reviews', href: '/reviews' },
     { label: 'FAQ', href: '#faq' },
   ],
   Support: [
