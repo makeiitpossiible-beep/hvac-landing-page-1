@@ -86,6 +86,12 @@ Transform the "Our HVAC Service" section from an auto-scrolling infinite carouse
 - **Mobile:** 1 column
 - **Homepage Carousel:** Keep carousel arrows/dots accessible and properly positioned on smaller screens
 - **/reviews Page:** Grid and pagination/load-more control remain usable on mobile
+- **"See all reviews" Link:** Add a centered text-link-style CTA positioned below the carousel's navigation dots/arrows on the homepage testimonials section. The link should:
+  - Display text "See all reviews →" (arrow icon matching the visual style used elsewhere, e.g., "Use the system configurator →" on pricing section)
+  - Route to `/reviews` page when clicked
+  - Use secondary/subtle styling (not a large filled button — should feel like a natural next step)
+  - Remain centered at all breakpoints
+  - Do NOT modify existing carousel behavior, stat row, or card design
 
 #### 9. FAQ Accordion
 - **All Breakpoints:** Full-width behavior on mobile with no text overflow
