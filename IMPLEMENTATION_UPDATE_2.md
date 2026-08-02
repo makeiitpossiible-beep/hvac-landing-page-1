@@ -841,6 +841,17 @@ Card width: 25% of container
 
 ---
 
+## Known Issues to Fix
+
+### CTA Button Bug: "Shop Systems" Button Not Working After First Click
+- **Location:** Top-right corner of navigation bar
+- **Issue Description:** The "Shop Systems" button works only on the first click (navigates to pricing section). After the first click, it stops functioning and does not respond to subsequent clicks.
+- **Expected Behavior:** The button should consistently navigate to the pricing section on every click, regardless of how many times it's clicked.
+- **Impact:** Users cannot navigate back to the pricing section after visiting another page if they need to revisit it.
+- **Status:** Needs investigation and fix
+
+---
+
 ## Implementation Order
 
 1. **Audit and fix responsive design** - Test all sections at mobile/tablet/desktop breakpoints; add hamburger menu, stack layouts, fix overflow/scrolling issues across entire site
