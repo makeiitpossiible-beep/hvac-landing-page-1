@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { StatsBar } from '@/components/testimonials/stats-bar'
 import { TestimonialsCarousel } from '@/components/testimonials/testimonials-carousel'
@@ -27,6 +29,16 @@ export function TestimonialsSection() {
 
         <div className="mt-12 border-t border-brand/10 pt-10">
           <TestimonialsCarousel testimonials={TESTIMONIALS} />
+
+          <div className="mt-8 flex justify-center">
+            <Link
+              href="/reviews"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange underline-offset-4 transition-colors hover:text-orange-dark hover:underline"
+            >
+              See all reviews
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </div>
     </section>
