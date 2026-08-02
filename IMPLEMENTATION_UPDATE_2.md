@@ -346,6 +346,7 @@ Replace with:
 - **Brands to Display:** Voltas, LG, Whirlpool, Blue Star, AmazonBasics, Coolngi
 - **Layout:** Horizontal scrollable or grid row of logos
 - **Styling:** Match existing brand section styling
+- **Logo File Update:** Replace the 6 company logo images in `/public/images/partners/` with the partner logos currently used in the "Brands we work with" section on the homepage. The uploaded images are ready to replace the existing placeholder files.
 
 #### 5. Certifications/Guarantees Section
 - **Component Reuse:** Reuse 4-column icon-card layout from homepage
