@@ -34,10 +34,10 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
       </div>
 
       <blockquote className="mt-4 flex-1">
-        <p className="text-base font-semibold text-foreground">
+        <p className="text-base text-left font-semibold text-foreground">
           {testimonial.headline}
         </p>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-2 text-sm text-left leading-relaxed text-muted-foreground">
           “{testimonial.body}”
         </p>
       </blockquote>

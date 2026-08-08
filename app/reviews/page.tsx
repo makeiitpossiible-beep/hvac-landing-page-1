@@ -20,13 +20,13 @@ export default function ReviewsPage() {
       <section className="border-b border-border bg-brand-tint py-14 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-wide text-orange">
+            <span className="text-sm font-semibold uppercase tracking-wide text-orange block text-center">
               Real results
             </span>
-            <h1 className="mt-3 text-balance text-3xl font-bold tracking-tight text-brand sm:text-4xl lg:text-5xl">
+            <h1 className="mt-3 text-balance text-center text-3xl font-bold tracking-tight text-brand sm:text-4xl lg:text-5xl">
               Homeowners cooled down fast and saved
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-xl text-center text-pretty text-lg leading-relaxed text-muted-foreground">
               Thousands of installs, measured by speed, savings, and
               satisfaction. Here is what our customers have to say.
             </p>
@@ -48,10 +48,10 @@ export default function ReviewsPage() {
       {/* CTA */}
       <section className="border-t border-border bg-secondary py-14 lg:py-20">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="text-balance text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Ready to join thousands of comfortable homeowners?
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-pretty text-base leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-lg text-center text-pretty text-base leading-relaxed text-muted-foreground">
             Upfront pricing, certified crews, and next-day installation. Book in
             minutes.
           </p>

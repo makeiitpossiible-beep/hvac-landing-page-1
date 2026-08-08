@@ -29,13 +29,13 @@ export function PricingCard({ tier, onSelect }: PricingCardProps) {
       )}
 
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-foreground">{tier.name}</h3>
+        <h3 className="text-lg text-left font-semibold text-foreground">{tier.name}</h3>
         <span className="rounded-md bg-secondary px-2 py-1 text-xs font-semibold text-brand">
           {tier.seer}
         </span>
       </div>
 
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+      <p className="mt-2 text-sm text-left leading-relaxed text-muted-foreground">
         {tier.description}
       </p>
 

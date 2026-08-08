@@ -14,21 +14,21 @@ const HIGHLIGHTS = [
 export function AboutHero() {
   return (
     <section className="border-b border-border bg-brand-tint py-14 lg:py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <span className="text-sm font-semibold uppercase tracking-wide text-orange">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+        <span className="text-sm font-semibold uppercase tracking-wide text-orange block text-center">
           Who we are
         </span>
-        <h1 className="mt-3 text-balance text-left text-3xl font-bold tracking-tight text-brand sm:text-4xl lg:text-5xl">
+        <h1 className="mt-3 text-balance text-center text-3xl font-bold tracking-tight text-brand sm:text-4xl lg:text-5xl">
           Home comfort without the runaround
         </h1>
-        <p className="mt-5 max-w-2xl text-left text-lg leading-relaxed text-muted-foreground">
+        <p className="mt-5 max-w-2xl text-left text-lg leading-relaxed text-muted-foreground mx-auto">
           {BRAND.name} is a heating and cooling company built on a simple idea:
           getting a new HVAC system should be fast, honest, and stress-free. We
           replaced drawn-out consultations and surprise invoices with upfront
           online pricing and certified crews that install the very next day.
         </p>
 
-        <ul className="mt-8 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+        <ul className="mt-8 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 text-left mx-auto w-full">
           {HIGHLIGHTS.map((item) => (
             <li
               key={item}
@@ -42,7 +42,7 @@ export function AboutHero() {
           ))}
         </ul>
 
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-9 flex flex-col gap-3 justify-center sm:flex-row sm:items-center w-full">
           <Link
             href="/#pricing"
             className={cn(
@@ -57,14 +57,14 @@ export function AboutHero() {
             href="/#configurator"
             className={cn(
               buttonVariants({ variant: 'outline', size: 'lg' }),
-              'font-semibold',
+              'border-brand/20 px-7 font-semibold text-foreground hover:bg-background',
             )}
           >
             See how it works
           </Link>
         </div>
 
-        <p className="mt-8 text-left text-xs text-muted-foreground">
+        <p className="mt-8 text-center text-xs text-muted-foreground mx-auto">
           {BRAND.license}
         </p>
       </div>

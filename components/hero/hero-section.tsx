@@ -42,7 +42,7 @@ export function HeroSection() {
             </Reveal>
 
             <Reveal delay={160}>
-              <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-5 text-left text-pretty text-lg leading-relaxed text-muted-foreground">
                 NextDay HVAC is a fully licensed and insured installation
                 service. Our trained, certified local crews handle everything
                 from sizing and permits to installation and old-unit removal,

@@ -162,7 +162,7 @@ export function ConfiguratorSection() {
               </div>
 
               <div className="mt-6 border-t border-white/10 pt-6">
-                <p className="text-sm text-brand-foreground/70">
+                <p className="text-sm text-left text-brand-foreground/70">
                   All-inclusive price, fully installed
                 </p>
                 <p className="mt-1 text-4xl font-bold tracking-tight transition-all">
@@ -173,7 +173,7 @@ export function ConfiguratorSection() {
                 </p>
               </div>
 
-              <p className="mt-4 text-xs leading-relaxed text-brand-foreground/60">
+              <p className="mt-4 text-xs text-left leading-relaxed text-brand-foreground/60">
                 A certified supervisor confirms sizing on a quick 10-minute call
                 before install. Adjustments are always free.
               </p>

@@ -777,35 +777,35 @@ Card width: 25% of container
 - [x] Images scale/crop gracefully, no stretching or overflow
 
 ### Text Alignment Updates
-- [ ] Hero paragraph is left-aligned (not justified)
-- [ ] Section subheadings are center-aligned (only where already centered)
-- [ ] Service card descriptions are left-aligned
-- [ ] Brand/trust-badge descriptions are left-aligned
-- [ ] Pricing tier descriptions are left-aligned
-- [ ] Pricing section subheading is center-aligned
-- [ ] Testimonial quotes are left-aligned
-- [ ] Reviews section subheading is center-aligned
-- [ ] FAQ answer text is left-aligned
-- [ ] FAQ section subheading is center-aligned
-- [ ] Footer copy is left-aligned
-- [ ] Font sizes, weights, colors, and spacing unchanged
-- [ ] No uneven spacing or ragged edges from justified alignment
+- [x] Hero paragraph is left-aligned (not justified)
+- [x] Section subheadings are center-aligned (only where already centered)
+- [x] Service card descriptions are left-aligned
+- [x] Brand/trust-badge descriptions are left-aligned
+- [x] Pricing tier descriptions are left-aligned
+- [x] Pricing section subheading is center-aligned
+- [x] Testimonial quotes are left-aligned
+- [x] Reviews section subheading is center-aligned
+- [x] FAQ answer text is left-aligned
+- [x] FAQ section subheading is center-aligned
+- [x] Footer copy is left-aligned
+- [x] Font sizes, weights, colors, and spacing unchanged
+- [x] No uneven spacing or ragged edges from justified alignment
 
 ### Reviews Page Updates
-- [ ] Page accessible at `/reviews`
-- [ ] Header section renders correctly with eyebrow, headline, and stat row
-- [ ] Stat row displays all 4 metrics (4.9★ rating, 2,800+ homes, 94% completion, $1,420 savings)
-- [ ] All customer reviews display in grid (not limited to 3 like homepage)
-- [ ] Review cards render with: 5-star rating, title, quote, name, location, verified badge
-- [ ] Grid displays 3 columns on desktop, 2 columns on tablet, 1 column on mobile
-- [ ] Pagination or "Load More" control functional (if large review count)
-- [ ] No auto-cycling or timed transitions (static page, user-controlled)
-- [ ] Review quotes are left-aligned (not justified)
-- [ ] CTA button "Book your installation" visible at bottom and functional
-- [ ] Footer "Reviews" link now points to `/reviews` (not anchor link)
-- [ ] All review content generated or sourced (realistic sample reviews if needed)
-- [ ] Page metadata set correctly (title, description, og tags)
-- [ ] Responsive design works on mobile/tablet/desktop
+- [x] Page accessible at `/reviews`
+- [x] Header section renders correctly with eyebrow, headline, and stat row
+- [x] Stat row displays all 4 metrics (4.9★ rating, 2,800+ homes, 94% completion, $1,420 savings)
+- [x] All customer reviews display in grid (not limited to 3 like homepage)
+- [x] Review cards render with: 5-star rating, title, quote, name, location, verified badge
+- [x] Grid displays 3 columns on desktop, 2 columns on tablet, 1 column on mobile
+- [x] Pagination or "Load More" control functional (if large review count)
+- [x] No auto-cycling or timed transitions (static page, user-controlled)
+- [x] Review quotes are left-aligned (not justified)
+- [x] CTA button "Book your installation" visible at bottom and functional
+- [x] Footer "Reviews" link now points to `/reviews` (not anchor link)
+- [x] All review content generated or sourced (realistic sample reviews if needed)
+- [x] Page metadata set correctly (title, description, og tags)
+- [x] Responsive design works on mobile/tablet/desktop
 
 ### About Page Updates ✅ COMPLETED
 - [x] Page accessible at `/about`
@@ -832,17 +832,17 @@ Card width: 25% of container
 - [x] Footer navigation unchanged (Systems, Company, Support columns)
 
 ### Services Grid Updates
-- [ ] Grid displays 1 column on mobile
-- [ ] Grid displays 2 columns on tablet
-- [ ] Grid displays 4 columns (2 rows) on desktop
-- [ ] All 8 cards visible with no scrolling needed on desktop
-- [ ] "Learn More" buttons route to correct service pages
-- [ ] Service detail pages render with correct data
-- [ ] Icon badge overlaps image correctly on all screen sizes
-- [ ] Cards have uniform height with button at bottom
-- [ ] No marquee animation visible
-- [ ] Responsive resize works smoothly
-- [ ] Static service pages pre-generate correctly
+- [x] Grid displays 1 column on mobile
+- [x] Grid displays 2 columns on tablet
+- [x] Grid displays 4 columns (2 rows) on desktop
+- [x] All 8 cards visible with no scrolling needed on desktop
+- [x] "Learn More" buttons route to correct service pages
+- [x] Service detail pages render with correct data
+- [x] Icon badge overlaps image correctly on all screen sizes
+- [x] Cards have uniform height with button at bottom
+- [x] No marquee animation visible
+- [x] Responsive resize works smoothly
+- [x] Static service pages pre-generate correctly
 
 ---
 

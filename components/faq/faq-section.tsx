@@ -54,7 +54,7 @@ export function FaqSection() {
                     )}
                   >
                     <div className="overflow-hidden">
-                      <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
+                      <p className="px-5 pb-5 text-sm text-left leading-relaxed text-muted-foreground">
                         {item.answer}
                       </p>
                     </div>

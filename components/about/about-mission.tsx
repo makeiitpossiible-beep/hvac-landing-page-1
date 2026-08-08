@@ -24,15 +24,15 @@ const PILLARS = [
 export function AboutMission() {
   return (
     <section className="bg-background py-14 lg:py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <span className="text-sm font-semibold uppercase tracking-wide text-orange">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+        <span className="text-sm font-semibold uppercase tracking-wide text-orange block text-center">
           Our approach
         </span>
-        <h2 className="mt-3 text-balance text-left text-3xl font-bold tracking-tight text-brand sm:text-4xl">
+        <h2 className="mt-3 text-balance text-center text-3xl font-bold tracking-tight text-brand sm:text-4xl">
           Comfort you can book like anything else
         </h2>
 
-        <div className="mt-6 space-y-5 text-left text-lg leading-relaxed text-muted-foreground">
+        <div className="mt-6 max-w-2xl space-y-5 text-left text-lg leading-relaxed text-muted-foreground mx-auto">
           <p>
             HVAC replacement has always meant waiting days for a quote, sitting
             through high-pressure sales visits, and second-guessing whether the
@@ -49,7 +49,7 @@ export function AboutMission() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 max-w-3xl w-full text-left mx-auto">
           {PILLARS.map((pillar) => (
             <div key={pillar.title} className="flex flex-col items-start gap-3">
               <span className="flex size-11 items-center justify-center rounded-lg bg-orange/10 text-orange">

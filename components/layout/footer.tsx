@@ -31,7 +31,7 @@ export function Footer() {
               </span>
               <span className="text-lg font-bold">{BRAND.name}</span>
             </div>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-brand-foreground/70">
+            <p className="mt-4 max-w-sm text-sm text-left leading-relaxed text-brand-foreground/70">
               Transparent, all-inclusive HVAC pricing with certified next-day
               installation. No surprise quotes, no pushy sales visits. Just
               honest comfort.

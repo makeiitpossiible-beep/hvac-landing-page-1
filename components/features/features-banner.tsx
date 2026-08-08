@@ -15,10 +15,10 @@ export function FeaturesBanner() {
                   <feature.icon className="size-6" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="text-sm font-semibold text-brand sm:text-base">
+                  <h3 className="text-sm text-left font-semibold text-brand sm:text-base">
                     {feature.title}
                   </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-brand/70">
+                  <p className="mt-1 text-sm text-left leading-relaxed text-brand/70">
                     {feature.description}
                   </p>
                 </div>
